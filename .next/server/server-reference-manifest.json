@@ -1,0 +1,150 @@
+{
+  "node": {
+    "004adc55b96827ada87645978576ae521cb0f06593": {
+      "workers": {
+        "app/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CDell%5C%5CDesktop%5C%5Ckaren-bariloche%5C%5Clib%5C%5Cactions.ts%22%2C%5B%7B%22id%22%3A%22004adc55b96827ada87645978576ae521cb0f06593%22%2C%22exportedName%22%3A%22getConfig%22%7D%2C%7B%22id%22%3A%22008f3becbb8b6e69f688e3385b983bb830b9005957%22%2C%22exportedName%22%3A%22getProducts%22%7D%2C%7B%22id%22%3A%2240513312c1d9f430dc98971337b385fdfb5dca6993%22%2C%22exportedName%22%3A%22checkLowStockProducts%22%7D%2C%7B%22id%22%3A%22405acffa5f60277d0c10f7945599a706751c7a01fa%22%2C%22exportedName%22%3A%22updateProduct%22%7D%2C%7B%22id%22%3A%22407535311fc159465633e3164d6ab753bd17c28b2a%22%2C%22exportedName%22%3A%22addProduct%22%7D%2C%7B%22id%22%3A%224098dc89ec31db64f701d3ca5be28d12993d5ffd2a%22%2C%22exportedName%22%3A%22updateConfig%22%7D%2C%7B%22id%22%3A%22409df2b1c0d91b1f6ac4b55db75a69e738ecd30aae%22%2C%22exportedName%22%3A%22toggleProductFeatured%22%7D%2C%7B%22id%22%3A%2240a1b8d98b43ef3fd14d74a4b67adae2f043258a35%22%2C%22exportedName%22%3A%22deleteProduct%22%7D%2C%7B%22id%22%3A%22704ec904c60b20c0476a8937ce4d6aa3120cae5973%22%2C%22exportedName%22%3A%22setProductOnSale%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        },
+        "app/_not-found/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CDell%5C%5CDesktop%5C%5Ckaren-bariloche%5C%5Clib%5C%5Cactions.ts%22%2C%5B%7B%22id%22%3A%22004adc55b96827ada87645978576ae521cb0f06593%22%2C%22exportedName%22%3A%22getConfig%22%7D%2C%7B%22id%22%3A%22008f3becbb8b6e69f688e3385b983bb830b9005957%22%2C%22exportedName%22%3A%22getProducts%22%7D%2C%7B%22id%22%3A%2240513312c1d9f430dc98971337b385fdfb5dca6993%22%2C%22exportedName%22%3A%22checkLowStockProducts%22%7D%2C%7B%22id%22%3A%22405acffa5f60277d0c10f7945599a706751c7a01fa%22%2C%22exportedName%22%3A%22updateProduct%22%7D%2C%7B%22id%22%3A%22407535311fc159465633e3164d6ab753bd17c28b2a%22%2C%22exportedName%22%3A%22addProduct%22%7D%2C%7B%22id%22%3A%224098dc89ec31db64f701d3ca5be28d12993d5ffd2a%22%2C%22exportedName%22%3A%22updateConfig%22%7D%2C%7B%22id%22%3A%22409df2b1c0d91b1f6ac4b55db75a69e738ecd30aae%22%2C%22exportedName%22%3A%22toggleProductFeatured%22%7D%2C%7B%22id%22%3A%2240a1b8d98b43ef3fd14d74a4b67adae2f043258a35%22%2C%22exportedName%22%3A%22deleteProduct%22%7D%2C%7B%22id%22%3A%22704ec904c60b20c0476a8937ce4d6aa3120cae5973%22%2C%22exportedName%22%3A%22setProductOnSale%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/page": "action-browser",
+        "app/_not-found/page": "action-browser"
+      }
+    },
+    "008f3becbb8b6e69f688e3385b983bb830b9005957": {
+      "workers": {
+        "app/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CDell%5C%5CDesktop%5C%5Ckaren-bariloche%5C%5Clib%5C%5Cactions.ts%22%2C%5B%7B%22id%22%3A%22004adc55b96827ada87645978576ae521cb0f06593%22%2C%22exportedName%22%3A%22getConfig%22%7D%2C%7B%22id%22%3A%22008f3becbb8b6e69f688e3385b983bb830b9005957%22%2C%22exportedName%22%3A%22getProducts%22%7D%2C%7B%22id%22%3A%2240513312c1d9f430dc98971337b385fdfb5dca6993%22%2C%22exportedName%22%3A%22checkLowStockProducts%22%7D%2C%7B%22id%22%3A%22405acffa5f60277d0c10f7945599a706751c7a01fa%22%2C%22exportedName%22%3A%22updateProduct%22%7D%2C%7B%22id%22%3A%22407535311fc159465633e3164d6ab753bd17c28b2a%22%2C%22exportedName%22%3A%22addProduct%22%7D%2C%7B%22id%22%3A%224098dc89ec31db64f701d3ca5be28d12993d5ffd2a%22%2C%22exportedName%22%3A%22updateConfig%22%7D%2C%7B%22id%22%3A%22409df2b1c0d91b1f6ac4b55db75a69e738ecd30aae%22%2C%22exportedName%22%3A%22toggleProductFeatured%22%7D%2C%7B%22id%22%3A%2240a1b8d98b43ef3fd14d74a4b67adae2f043258a35%22%2C%22exportedName%22%3A%22deleteProduct%22%7D%2C%7B%22id%22%3A%22704ec904c60b20c0476a8937ce4d6aa3120cae5973%22%2C%22exportedName%22%3A%22setProductOnSale%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        },
+        "app/_not-found/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CDell%5C%5CDesktop%5C%5Ckaren-bariloche%5C%5Clib%5C%5Cactions.ts%22%2C%5B%7B%22id%22%3A%22004adc55b96827ada87645978576ae521cb0f06593%22%2C%22exportedName%22%3A%22getConfig%22%7D%2C%7B%22id%22%3A%22008f3becbb8b6e69f688e3385b983bb830b9005957%22%2C%22exportedName%22%3A%22getProducts%22%7D%2C%7B%22id%22%3A%2240513312c1d9f430dc98971337b385fdfb5dca6993%22%2C%22exportedName%22%3A%22checkLowStockProducts%22%7D%2C%7B%22id%22%3A%22405acffa5f60277d0c10f7945599a706751c7a01fa%22%2C%22exportedName%22%3A%22updateProduct%22%7D%2C%7B%22id%22%3A%22407535311fc159465633e3164d6ab753bd17c28b2a%22%2C%22exportedName%22%3A%22addProduct%22%7D%2C%7B%22id%22%3A%224098dc89ec31db64f701d3ca5be28d12993d5ffd2a%22%2C%22exportedName%22%3A%22updateConfig%22%7D%2C%7B%22id%22%3A%22409df2b1c0d91b1f6ac4b55db75a69e738ecd30aae%22%2C%22exportedName%22%3A%22toggleProductFeatured%22%7D%2C%7B%22id%22%3A%2240a1b8d98b43ef3fd14d74a4b67adae2f043258a35%22%2C%22exportedName%22%3A%22deleteProduct%22%7D%2C%7B%22id%22%3A%22704ec904c60b20c0476a8937ce4d6aa3120cae5973%22%2C%22exportedName%22%3A%22setProductOnSale%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/page": "action-browser",
+        "app/_not-found/page": "action-browser"
+      }
+    },
+    "40513312c1d9f430dc98971337b385fdfb5dca6993": {
+      "workers": {
+        "app/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CDell%5C%5CDesktop%5C%5Ckaren-bariloche%5C%5Clib%5C%5Cactions.ts%22%2C%5B%7B%22id%22%3A%22004adc55b96827ada87645978576ae521cb0f06593%22%2C%22exportedName%22%3A%22getConfig%22%7D%2C%7B%22id%22%3A%22008f3becbb8b6e69f688e3385b983bb830b9005957%22%2C%22exportedName%22%3A%22getProducts%22%7D%2C%7B%22id%22%3A%2240513312c1d9f430dc98971337b385fdfb5dca6993%22%2C%22exportedName%22%3A%22checkLowStockProducts%22%7D%2C%7B%22id%22%3A%22405acffa5f60277d0c10f7945599a706751c7a01fa%22%2C%22exportedName%22%3A%22updateProduct%22%7D%2C%7B%22id%22%3A%22407535311fc159465633e3164d6ab753bd17c28b2a%22%2C%22exportedName%22%3A%22addProduct%22%7D%2C%7B%22id%22%3A%224098dc89ec31db64f701d3ca5be28d12993d5ffd2a%22%2C%22exportedName%22%3A%22updateConfig%22%7D%2C%7B%22id%22%3A%22409df2b1c0d91b1f6ac4b55db75a69e738ecd30aae%22%2C%22exportedName%22%3A%22toggleProductFeatured%22%7D%2C%7B%22id%22%3A%2240a1b8d98b43ef3fd14d74a4b67adae2f043258a35%22%2C%22exportedName%22%3A%22deleteProduct%22%7D%2C%7B%22id%22%3A%22704ec904c60b20c0476a8937ce4d6aa3120cae5973%22%2C%22exportedName%22%3A%22setProductOnSale%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        },
+        "app/_not-found/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CDell%5C%5CDesktop%5C%5Ckaren-bariloche%5C%5Clib%5C%5Cactions.ts%22%2C%5B%7B%22id%22%3A%22004adc55b96827ada87645978576ae521cb0f06593%22%2C%22exportedName%22%3A%22getConfig%22%7D%2C%7B%22id%22%3A%22008f3becbb8b6e69f688e3385b983bb830b9005957%22%2C%22exportedName%22%3A%22getProducts%22%7D%2C%7B%22id%22%3A%2240513312c1d9f430dc98971337b385fdfb5dca6993%22%2C%22exportedName%22%3A%22checkLowStockProducts%22%7D%2C%7B%22id%22%3A%22405acffa5f60277d0c10f7945599a706751c7a01fa%22%2C%22exportedName%22%3A%22updateProduct%22%7D%2C%7B%22id%22%3A%22407535311fc159465633e3164d6ab753bd17c28b2a%22%2C%22exportedName%22%3A%22addProduct%22%7D%2C%7B%22id%22%3A%224098dc89ec31db64f701d3ca5be28d12993d5ffd2a%22%2C%22exportedName%22%3A%22updateConfig%22%7D%2C%7B%22id%22%3A%22409df2b1c0d91b1f6ac4b55db75a69e738ecd30aae%22%2C%22exportedName%22%3A%22toggleProductFeatured%22%7D%2C%7B%22id%22%3A%2240a1b8d98b43ef3fd14d74a4b67adae2f043258a35%22%2C%22exportedName%22%3A%22deleteProduct%22%7D%2C%7B%22id%22%3A%22704ec904c60b20c0476a8937ce4d6aa3120cae5973%22%2C%22exportedName%22%3A%22setProductOnSale%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/page": "action-browser",
+        "app/_not-found/page": "action-browser"
+      }
+    },
+    "405acffa5f60277d0c10f7945599a706751c7a01fa": {
+      "workers": {
+        "app/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CDell%5C%5CDesktop%5C%5Ckaren-bariloche%5C%5Clib%5C%5Cactions.ts%22%2C%5B%7B%22id%22%3A%22004adc55b96827ada87645978576ae521cb0f06593%22%2C%22exportedName%22%3A%22getConfig%22%7D%2C%7B%22id%22%3A%22008f3becbb8b6e69f688e3385b983bb830b9005957%22%2C%22exportedName%22%3A%22getProducts%22%7D%2C%7B%22id%22%3A%2240513312c1d9f430dc98971337b385fdfb5dca6993%22%2C%22exportedName%22%3A%22checkLowStockProducts%22%7D%2C%7B%22id%22%3A%22405acffa5f60277d0c10f7945599a706751c7a01fa%22%2C%22exportedName%22%3A%22updateProduct%22%7D%2C%7B%22id%22%3A%22407535311fc159465633e3164d6ab753bd17c28b2a%22%2C%22exportedName%22%3A%22addProduct%22%7D%2C%7B%22id%22%3A%224098dc89ec31db64f701d3ca5be28d12993d5ffd2a%22%2C%22exportedName%22%3A%22updateConfig%22%7D%2C%7B%22id%22%3A%22409df2b1c0d91b1f6ac4b55db75a69e738ecd30aae%22%2C%22exportedName%22%3A%22toggleProductFeatured%22%7D%2C%7B%22id%22%3A%2240a1b8d98b43ef3fd14d74a4b67adae2f043258a35%22%2C%22exportedName%22%3A%22deleteProduct%22%7D%2C%7B%22id%22%3A%22704ec904c60b20c0476a8937ce4d6aa3120cae5973%22%2C%22exportedName%22%3A%22setProductOnSale%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        },
+        "app/_not-found/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CDell%5C%5CDesktop%5C%5Ckaren-bariloche%5C%5Clib%5C%5Cactions.ts%22%2C%5B%7B%22id%22%3A%22004adc55b96827ada87645978576ae521cb0f06593%22%2C%22exportedName%22%3A%22getConfig%22%7D%2C%7B%22id%22%3A%22008f3becbb8b6e69f688e3385b983bb830b9005957%22%2C%22exportedName%22%3A%22getProducts%22%7D%2C%7B%22id%22%3A%2240513312c1d9f430dc98971337b385fdfb5dca6993%22%2C%22exportedName%22%3A%22checkLowStockProducts%22%7D%2C%7B%22id%22%3A%22405acffa5f60277d0c10f7945599a706751c7a01fa%22%2C%22exportedName%22%3A%22updateProduct%22%7D%2C%7B%22id%22%3A%22407535311fc159465633e3164d6ab753bd17c28b2a%22%2C%22exportedName%22%3A%22addProduct%22%7D%2C%7B%22id%22%3A%224098dc89ec31db64f701d3ca5be28d12993d5ffd2a%22%2C%22exportedName%22%3A%22updateConfig%22%7D%2C%7B%22id%22%3A%22409df2b1c0d91b1f6ac4b55db75a69e738ecd30aae%22%2C%22exportedName%22%3A%22toggleProductFeatured%22%7D%2C%7B%22id%22%3A%2240a1b8d98b43ef3fd14d74a4b67adae2f043258a35%22%2C%22exportedName%22%3A%22deleteProduct%22%7D%2C%7B%22id%22%3A%22704ec904c60b20c0476a8937ce4d6aa3120cae5973%22%2C%22exportedName%22%3A%22setProductOnSale%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/page": "action-browser",
+        "app/_not-found/page": "action-browser"
+      }
+    },
+    "407535311fc159465633e3164d6ab753bd17c28b2a": {
+      "workers": {
+        "app/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CDell%5C%5CDesktop%5C%5Ckaren-bariloche%5C%5Clib%5C%5Cactions.ts%22%2C%5B%7B%22id%22%3A%22004adc55b96827ada87645978576ae521cb0f06593%22%2C%22exportedName%22%3A%22getConfig%22%7D%2C%7B%22id%22%3A%22008f3becbb8b6e69f688e3385b983bb830b9005957%22%2C%22exportedName%22%3A%22getProducts%22%7D%2C%7B%22id%22%3A%2240513312c1d9f430dc98971337b385fdfb5dca6993%22%2C%22exportedName%22%3A%22checkLowStockProducts%22%7D%2C%7B%22id%22%3A%22405acffa5f60277d0c10f7945599a706751c7a01fa%22%2C%22exportedName%22%3A%22updateProduct%22%7D%2C%7B%22id%22%3A%22407535311fc159465633e3164d6ab753bd17c28b2a%22%2C%22exportedName%22%3A%22addProduct%22%7D%2C%7B%22id%22%3A%224098dc89ec31db64f701d3ca5be28d12993d5ffd2a%22%2C%22exportedName%22%3A%22updateConfig%22%7D%2C%7B%22id%22%3A%22409df2b1c0d91b1f6ac4b55db75a69e738ecd30aae%22%2C%22exportedName%22%3A%22toggleProductFeatured%22%7D%2C%7B%22id%22%3A%2240a1b8d98b43ef3fd14d74a4b67adae2f043258a35%22%2C%22exportedName%22%3A%22deleteProduct%22%7D%2C%7B%22id%22%3A%22704ec904c60b20c0476a8937ce4d6aa3120cae5973%22%2C%22exportedName%22%3A%22setProductOnSale%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        },
+        "app/_not-found/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CDell%5C%5CDesktop%5C%5Ckaren-bariloche%5C%5Clib%5C%5Cactions.ts%22%2C%5B%7B%22id%22%3A%22004adc55b96827ada87645978576ae521cb0f06593%22%2C%22exportedName%22%3A%22getConfig%22%7D%2C%7B%22id%22%3A%22008f3becbb8b6e69f688e3385b983bb830b9005957%22%2C%22exportedName%22%3A%22getProducts%22%7D%2C%7B%22id%22%3A%2240513312c1d9f430dc98971337b385fdfb5dca6993%22%2C%22exportedName%22%3A%22checkLowStockProducts%22%7D%2C%7B%22id%22%3A%22405acffa5f60277d0c10f7945599a706751c7a01fa%22%2C%22exportedName%22%3A%22updateProduct%22%7D%2C%7B%22id%22%3A%22407535311fc159465633e3164d6ab753bd17c28b2a%22%2C%22exportedName%22%3A%22addProduct%22%7D%2C%7B%22id%22%3A%224098dc89ec31db64f701d3ca5be28d12993d5ffd2a%22%2C%22exportedName%22%3A%22updateConfig%22%7D%2C%7B%22id%22%3A%22409df2b1c0d91b1f6ac4b55db75a69e738ecd30aae%22%2C%22exportedName%22%3A%22toggleProductFeatured%22%7D%2C%7B%22id%22%3A%2240a1b8d98b43ef3fd14d74a4b67adae2f043258a35%22%2C%22exportedName%22%3A%22deleteProduct%22%7D%2C%7B%22id%22%3A%22704ec904c60b20c0476a8937ce4d6aa3120cae5973%22%2C%22exportedName%22%3A%22setProductOnSale%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/page": "action-browser",
+        "app/_not-found/page": "action-browser"
+      }
+    },
+    "4098dc89ec31db64f701d3ca5be28d12993d5ffd2a": {
+      "workers": {
+        "app/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CDell%5C%5CDesktop%5C%5Ckaren-bariloche%5C%5Clib%5C%5Cactions.ts%22%2C%5B%7B%22id%22%3A%22004adc55b96827ada87645978576ae521cb0f06593%22%2C%22exportedName%22%3A%22getConfig%22%7D%2C%7B%22id%22%3A%22008f3becbb8b6e69f688e3385b983bb830b9005957%22%2C%22exportedName%22%3A%22getProducts%22%7D%2C%7B%22id%22%3A%2240513312c1d9f430dc98971337b385fdfb5dca6993%22%2C%22exportedName%22%3A%22checkLowStockProducts%22%7D%2C%7B%22id%22%3A%22405acffa5f60277d0c10f7945599a706751c7a01fa%22%2C%22exportedName%22%3A%22updateProduct%22%7D%2C%7B%22id%22%3A%22407535311fc159465633e3164d6ab753bd17c28b2a%22%2C%22exportedName%22%3A%22addProduct%22%7D%2C%7B%22id%22%3A%224098dc89ec31db64f701d3ca5be28d12993d5ffd2a%22%2C%22exportedName%22%3A%22updateConfig%22%7D%2C%7B%22id%22%3A%22409df2b1c0d91b1f6ac4b55db75a69e738ecd30aae%22%2C%22exportedName%22%3A%22toggleProductFeatured%22%7D%2C%7B%22id%22%3A%2240a1b8d98b43ef3fd14d74a4b67adae2f043258a35%22%2C%22exportedName%22%3A%22deleteProduct%22%7D%2C%7B%22id%22%3A%22704ec904c60b20c0476a8937ce4d6aa3120cae5973%22%2C%22exportedName%22%3A%22setProductOnSale%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        },
+        "app/_not-found/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CDell%5C%5CDesktop%5C%5Ckaren-bariloche%5C%5Clib%5C%5Cactions.ts%22%2C%5B%7B%22id%22%3A%22004adc55b96827ada87645978576ae521cb0f06593%22%2C%22exportedName%22%3A%22getConfig%22%7D%2C%7B%22id%22%3A%22008f3becbb8b6e69f688e3385b983bb830b9005957%22%2C%22exportedName%22%3A%22getProducts%22%7D%2C%7B%22id%22%3A%2240513312c1d9f430dc98971337b385fdfb5dca6993%22%2C%22exportedName%22%3A%22checkLowStockProducts%22%7D%2C%7B%22id%22%3A%22405acffa5f60277d0c10f7945599a706751c7a01fa%22%2C%22exportedName%22%3A%22updateProduct%22%7D%2C%7B%22id%22%3A%22407535311fc159465633e3164d6ab753bd17c28b2a%22%2C%22exportedName%22%3A%22addProduct%22%7D%2C%7B%22id%22%3A%224098dc89ec31db64f701d3ca5be28d12993d5ffd2a%22%2C%22exportedName%22%3A%22updateConfig%22%7D%2C%7B%22id%22%3A%22409df2b1c0d91b1f6ac4b55db75a69e738ecd30aae%22%2C%22exportedName%22%3A%22toggleProductFeatured%22%7D%2C%7B%22id%22%3A%2240a1b8d98b43ef3fd14d74a4b67adae2f043258a35%22%2C%22exportedName%22%3A%22deleteProduct%22%7D%2C%7B%22id%22%3A%22704ec904c60b20c0476a8937ce4d6aa3120cae5973%22%2C%22exportedName%22%3A%22setProductOnSale%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/page": "action-browser",
+        "app/_not-found/page": "action-browser"
+      }
+    },
+    "409df2b1c0d91b1f6ac4b55db75a69e738ecd30aae": {
+      "workers": {
+        "app/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CDell%5C%5CDesktop%5C%5Ckaren-bariloche%5C%5Clib%5C%5Cactions.ts%22%2C%5B%7B%22id%22%3A%22004adc55b96827ada87645978576ae521cb0f06593%22%2C%22exportedName%22%3A%22getConfig%22%7D%2C%7B%22id%22%3A%22008f3becbb8b6e69f688e3385b983bb830b9005957%22%2C%22exportedName%22%3A%22getProducts%22%7D%2C%7B%22id%22%3A%2240513312c1d9f430dc98971337b385fdfb5dca6993%22%2C%22exportedName%22%3A%22checkLowStockProducts%22%7D%2C%7B%22id%22%3A%22405acffa5f60277d0c10f7945599a706751c7a01fa%22%2C%22exportedName%22%3A%22updateProduct%22%7D%2C%7B%22id%22%3A%22407535311fc159465633e3164d6ab753bd17c28b2a%22%2C%22exportedName%22%3A%22addProduct%22%7D%2C%7B%22id%22%3A%224098dc89ec31db64f701d3ca5be28d12993d5ffd2a%22%2C%22exportedName%22%3A%22updateConfig%22%7D%2C%7B%22id%22%3A%22409df2b1c0d91b1f6ac4b55db75a69e738ecd30aae%22%2C%22exportedName%22%3A%22toggleProductFeatured%22%7D%2C%7B%22id%22%3A%2240a1b8d98b43ef3fd14d74a4b67adae2f043258a35%22%2C%22exportedName%22%3A%22deleteProduct%22%7D%2C%7B%22id%22%3A%22704ec904c60b20c0476a8937ce4d6aa3120cae5973%22%2C%22exportedName%22%3A%22setProductOnSale%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        },
+        "app/_not-found/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CDell%5C%5CDesktop%5C%5Ckaren-bariloche%5C%5Clib%5C%5Cactions.ts%22%2C%5B%7B%22id%22%3A%22004adc55b96827ada87645978576ae521cb0f06593%22%2C%22exportedName%22%3A%22getConfig%22%7D%2C%7B%22id%22%3A%22008f3becbb8b6e69f688e3385b983bb830b9005957%22%2C%22exportedName%22%3A%22getProducts%22%7D%2C%7B%22id%22%3A%2240513312c1d9f430dc98971337b385fdfb5dca6993%22%2C%22exportedName%22%3A%22checkLowStockProducts%22%7D%2C%7B%22id%22%3A%22405acffa5f60277d0c10f7945599a706751c7a01fa%22%2C%22exportedName%22%3A%22updateProduct%22%7D%2C%7B%22id%22%3A%22407535311fc159465633e3164d6ab753bd17c28b2a%22%2C%22exportedName%22%3A%22addProduct%22%7D%2C%7B%22id%22%3A%224098dc89ec31db64f701d3ca5be28d12993d5ffd2a%22%2C%22exportedName%22%3A%22updateConfig%22%7D%2C%7B%22id%22%3A%22409df2b1c0d91b1f6ac4b55db75a69e738ecd30aae%22%2C%22exportedName%22%3A%22toggleProductFeatured%22%7D%2C%7B%22id%22%3A%2240a1b8d98b43ef3fd14d74a4b67adae2f043258a35%22%2C%22exportedName%22%3A%22deleteProduct%22%7D%2C%7B%22id%22%3A%22704ec904c60b20c0476a8937ce4d6aa3120cae5973%22%2C%22exportedName%22%3A%22setProductOnSale%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/page": "action-browser",
+        "app/_not-found/page": "action-browser"
+      }
+    },
+    "40a1b8d98b43ef3fd14d74a4b67adae2f043258a35": {
+      "workers": {
+        "app/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CDell%5C%5CDesktop%5C%5Ckaren-bariloche%5C%5Clib%5C%5Cactions.ts%22%2C%5B%7B%22id%22%3A%22004adc55b96827ada87645978576ae521cb0f06593%22%2C%22exportedName%22%3A%22getConfig%22%7D%2C%7B%22id%22%3A%22008f3becbb8b6e69f688e3385b983bb830b9005957%22%2C%22exportedName%22%3A%22getProducts%22%7D%2C%7B%22id%22%3A%2240513312c1d9f430dc98971337b385fdfb5dca6993%22%2C%22exportedName%22%3A%22checkLowStockProducts%22%7D%2C%7B%22id%22%3A%22405acffa5f60277d0c10f7945599a706751c7a01fa%22%2C%22exportedName%22%3A%22updateProduct%22%7D%2C%7B%22id%22%3A%22407535311fc159465633e3164d6ab753bd17c28b2a%22%2C%22exportedName%22%3A%22addProduct%22%7D%2C%7B%22id%22%3A%224098dc89ec31db64f701d3ca5be28d12993d5ffd2a%22%2C%22exportedName%22%3A%22updateConfig%22%7D%2C%7B%22id%22%3A%22409df2b1c0d91b1f6ac4b55db75a69e738ecd30aae%22%2C%22exportedName%22%3A%22toggleProductFeatured%22%7D%2C%7B%22id%22%3A%2240a1b8d98b43ef3fd14d74a4b67adae2f043258a35%22%2C%22exportedName%22%3A%22deleteProduct%22%7D%2C%7B%22id%22%3A%22704ec904c60b20c0476a8937ce4d6aa3120cae5973%22%2C%22exportedName%22%3A%22setProductOnSale%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        },
+        "app/_not-found/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CDell%5C%5CDesktop%5C%5Ckaren-bariloche%5C%5Clib%5C%5Cactions.ts%22%2C%5B%7B%22id%22%3A%22004adc55b96827ada87645978576ae521cb0f06593%22%2C%22exportedName%22%3A%22getConfig%22%7D%2C%7B%22id%22%3A%22008f3becbb8b6e69f688e3385b983bb830b9005957%22%2C%22exportedName%22%3A%22getProducts%22%7D%2C%7B%22id%22%3A%2240513312c1d9f430dc98971337b385fdfb5dca6993%22%2C%22exportedName%22%3A%22checkLowStockProducts%22%7D%2C%7B%22id%22%3A%22405acffa5f60277d0c10f7945599a706751c7a01fa%22%2C%22exportedName%22%3A%22updateProduct%22%7D%2C%7B%22id%22%3A%22407535311fc159465633e3164d6ab753bd17c28b2a%22%2C%22exportedName%22%3A%22addProduct%22%7D%2C%7B%22id%22%3A%224098dc89ec31db64f701d3ca5be28d12993d5ffd2a%22%2C%22exportedName%22%3A%22updateConfig%22%7D%2C%7B%22id%22%3A%22409df2b1c0d91b1f6ac4b55db75a69e738ecd30aae%22%2C%22exportedName%22%3A%22toggleProductFeatured%22%7D%2C%7B%22id%22%3A%2240a1b8d98b43ef3fd14d74a4b67adae2f043258a35%22%2C%22exportedName%22%3A%22deleteProduct%22%7D%2C%7B%22id%22%3A%22704ec904c60b20c0476a8937ce4d6aa3120cae5973%22%2C%22exportedName%22%3A%22setProductOnSale%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/page": "action-browser",
+        "app/_not-found/page": "action-browser"
+      }
+    },
+    "704ec904c60b20c0476a8937ce4d6aa3120cae5973": {
+      "workers": {
+        "app/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CDell%5C%5CDesktop%5C%5Ckaren-bariloche%5C%5Clib%5C%5Cactions.ts%22%2C%5B%7B%22id%22%3A%22004adc55b96827ada87645978576ae521cb0f06593%22%2C%22exportedName%22%3A%22getConfig%22%7D%2C%7B%22id%22%3A%22008f3becbb8b6e69f688e3385b983bb830b9005957%22%2C%22exportedName%22%3A%22getProducts%22%7D%2C%7B%22id%22%3A%2240513312c1d9f430dc98971337b385fdfb5dca6993%22%2C%22exportedName%22%3A%22checkLowStockProducts%22%7D%2C%7B%22id%22%3A%22405acffa5f60277d0c10f7945599a706751c7a01fa%22%2C%22exportedName%22%3A%22updateProduct%22%7D%2C%7B%22id%22%3A%22407535311fc159465633e3164d6ab753bd17c28b2a%22%2C%22exportedName%22%3A%22addProduct%22%7D%2C%7B%22id%22%3A%224098dc89ec31db64f701d3ca5be28d12993d5ffd2a%22%2C%22exportedName%22%3A%22updateConfig%22%7D%2C%7B%22id%22%3A%22409df2b1c0d91b1f6ac4b55db75a69e738ecd30aae%22%2C%22exportedName%22%3A%22toggleProductFeatured%22%7D%2C%7B%22id%22%3A%2240a1b8d98b43ef3fd14d74a4b67adae2f043258a35%22%2C%22exportedName%22%3A%22deleteProduct%22%7D%2C%7B%22id%22%3A%22704ec904c60b20c0476a8937ce4d6aa3120cae5973%22%2C%22exportedName%22%3A%22setProductOnSale%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        },
+        "app/_not-found/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CDell%5C%5CDesktop%5C%5Ckaren-bariloche%5C%5Clib%5C%5Cactions.ts%22%2C%5B%7B%22id%22%3A%22004adc55b96827ada87645978576ae521cb0f06593%22%2C%22exportedName%22%3A%22getConfig%22%7D%2C%7B%22id%22%3A%22008f3becbb8b6e69f688e3385b983bb830b9005957%22%2C%22exportedName%22%3A%22getProducts%22%7D%2C%7B%22id%22%3A%2240513312c1d9f430dc98971337b385fdfb5dca6993%22%2C%22exportedName%22%3A%22checkLowStockProducts%22%7D%2C%7B%22id%22%3A%22405acffa5f60277d0c10f7945599a706751c7a01fa%22%2C%22exportedName%22%3A%22updateProduct%22%7D%2C%7B%22id%22%3A%22407535311fc159465633e3164d6ab753bd17c28b2a%22%2C%22exportedName%22%3A%22addProduct%22%7D%2C%7B%22id%22%3A%224098dc89ec31db64f701d3ca5be28d12993d5ffd2a%22%2C%22exportedName%22%3A%22updateConfig%22%7D%2C%7B%22id%22%3A%22409df2b1c0d91b1f6ac4b55db75a69e738ecd30aae%22%2C%22exportedName%22%3A%22toggleProductFeatured%22%7D%2C%7B%22id%22%3A%2240a1b8d98b43ef3fd14d74a4b67adae2f043258a35%22%2C%22exportedName%22%3A%22deleteProduct%22%7D%2C%7B%22id%22%3A%22704ec904c60b20c0476a8937ce4d6aa3120cae5973%22%2C%22exportedName%22%3A%22setProductOnSale%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/page": "action-browser",
+        "app/_not-found/page": "action-browser"
+      }
+    }
+  },
+  "edge": {},
+  "encryptionKey": "khvyFrWEP7+2Jj/OycUZMNuhftachu8msvqEXKU4ZPw="
+}
