@@ -274,7 +274,6 @@ export default function ProductDetailPage() {
                                 </div>
                                 <div>
                                   <div className="font-medium text-gray-800">{option.installments} cuotas</div>
-                                  <div className="text-sm text-gray-600">Sin interés</div>
                                 </div>
                               </div>
                               <div className="text-right">
