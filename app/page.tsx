@@ -244,7 +244,7 @@ export default function HomePage() {
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
               backgroundImage: "url('/images/bariloche-mountain2.png')",
-              backgroundPosition: "center 40%",
+              backgroundPosition: "center 40%", 
             }}
           >
             {/* Overlay para mejorar la legibilidad del texto */}

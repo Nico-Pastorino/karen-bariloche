@@ -19,7 +19,9 @@ export const defaultProductImages = {
 
     // Imágenes 13
 
+    { id: "iphone-13-todos", url: "/images/products/iphones/iphone-13-todos.png", name: "iPhone 13 Todos" },
     { id: "iphone-13-negro", url: "/images/products/iphones/iphone-13-negro.png", name: "iPhone 13 Negro" },
+    { id: "iphone-13-red", url: "/images/products/iphones/iphone-13-red.png", name: "iPhone 13 Red" },
     { id: "iphone-13-pink", url: "/images/products/iphones/iphone-13-pink.png", name: "iPhone 13 Pink" },
     { id: "iphone-13-white", url: "/images/products/iphones/iphone-13-white.png", name: "iPhone 13 White" },
 
