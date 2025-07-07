@@ -33,7 +33,8 @@ export const defaultProductImages = {
     { id: "iphone-14-pro-todos", url: "/images/products/iphones/iphone-14-pro-todos.png", name: "iPhone 14 Pro Todos" },
 
     // Imágenes 15
-
+    
+    { id: "iphone-15-todos", url: "/images/products/iphones/iphone-15-todos.png", name: "iPhone 15 Todos" },
     { id: "iphone-15-negro", url: "/images/products/iphones/iphone-15-negro.png", name: "iPhone 15 Negro" },
     { id: "iphone-15-pro-todos", url: "/images/products/iphones/iphone-15-pro-todos.png", name: "iPhone 15 Pro Todos" },
     { id: "iphone-15-pro-titanium-black", url: "/images/products/iphones/iphone-15-pro-titanium-black.png", name: "iPhone 15 Pro Titanium Black" },
@@ -48,24 +49,13 @@ export const defaultProductImages = {
 
   ],
   MacBook: [
-    { id: "imac-24-blue", url: "/images/products/macbook/imac-24-blue.png", name: "iMac 24 pulgadas Azul" },
+    { id: "macbook-air-m1", url: "/images/products/macbook/macbook-air-m1.png", name: "MacBook Air M1" },
+    { id: "macbook-air-m2", url: "/images/products/macbook/macbook-air-m2.png", name: "MacBook Air M2" },
+    { id: "macbook-air-m3", url: "/images/products/macbook/macbook-air-m3.png", name: "MacBook Air M3" },
+    { id: "macbook-air-m4", url: "/images/products/macbook/macbook-air-m4.png", name: "MacBook Air M4" },
+
     { id: "mac-mini-m2", url: "/images/products/macbook/mac-mini-m2.png", name: "Mac Mini M2" },
-    { id: "macbook-m3-pro", url: "/images/products/macbook/macbook-m3-pro.png", name: "MacBook Pro M3" },
-    {
-      id: "macbook-air-m1-silver",
-      url: "/images/products/macbook/macbook-air-m1-silver.png",
-      name: "MacBook Air M1 Plata",
-    },
-    {
-      id: "macbook-air-m2-colors",
-      url: "/images/products/macbook/macbook-air-m2-colors.png",
-      name: "MacBook Air M2 Colores",
-    },
-    {
-      id: "macbook-m4",
-      url: "/images/products/macbook/macbook-M4.png",
-      name: "MacBook Air M4",
-    },
+    
   ],
   iPad: [
     { id: "ipad-air-m1-gris", url: "/images/products/ipad/IPAD-AIR-M1-gris.png", name: "iPad Air M1 Gris Espacial" },
