@@ -265,10 +265,17 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
 
         // Si es un error de conexión, usar datos de ejemplo
         if (
-          productsError.message?.includes("connection") ||
-          productsError.message?.includes("network") ||
-          productsError.message?.includes("fetch") ||
-          productsError.message?.includes("Receiving end does not exist")
+          (typeof productsError === "object" &&
+            productsError !== null &&
+            "message" in productsError &&
+            typeof (productsError as any).message === "string" &&
+            (
+              (productsError as any).message.includes("connection") ||
+              (productsError as any).message.includes("network") ||
+              (productsError as any).message.includes("fetch") ||
+              (productsError as any).message.includes("Receiving end does not exist")
+            )
+          )
         ) {
           console.log("Store: Usando productos de ejemplo debido a problemas de conexión")
           productsData = sampleProducts

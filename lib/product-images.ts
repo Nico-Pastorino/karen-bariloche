@@ -24,6 +24,7 @@ export const defaultProductImages = {
     { id: "iphone-13-red", url: "/images/products/iphones/iphone-13-red.png", name: "iPhone 13 Red" },
     { id: "iphone-13-pink", url: "/images/products/iphones/iphone-13-pink.png", name: "iPhone 13 Pink" },
     { id: "iphone-13-white", url: "/images/products/iphones/iphone-13-white.png", name: "iPhone 13 White" },
+    { id: "iphone-13-pro-todos", url: "/images/products/iphones/iphone-13-pro-todos.png", name: "iPhone 13 Pro" },
 
     // Imágenes 14
 
@@ -78,7 +79,8 @@ export const defaultProductImages = {
       name: "Apple Watch SE 2ª Gen",
     },
     { id: "airpods-max-white", url: "/images/products/accesorios/airpods-max-white.png", name: "AirPods Max Blanco" },
-    { id: "airtag-white", url: "/images/products/accesorios/airtag-white.png", name: "AirTag Blanco" },
+    { id: "airtag-4", url: "/images/products/accesorios/airtag-4.png", name: "AirTag x4" },
+    { id: "airtag-1", url: "/images/products/accesorios/airtag-4.png", name: "AirTag" },
     { id: "pencil", url: "/images/products/accesorios/pencil.png", name: "Apple Pencil" },
   ],
 }
