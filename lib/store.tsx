@@ -193,7 +193,7 @@ const sampleProducts: Product[] = [
     colors: ["Natural Titanium", "Blue Titanium", "White Titanium", "Black Titanium"],
     storageCapacity: "128GB",
     hasAppleWarranty: true,
-    image: "/images/products/iphones/iphone15-pro-gray.png",
+    image: "/images/products/iphone/iphone-15pro.png",
   },
   {
     id: 2,
@@ -207,7 +207,7 @@ const sampleProducts: Product[] = [
     colors: ["Silver", "Space Gray", "Starlight", "Midnight"],
     storageCapacity: "256GB",
     hasAppleWarranty: true,
-    image: "/images/products/macbook/macbook-air-m2-colors.png",
+    image: "/images/products/macbook/macbookM2.png",
   },
   {
     id: 3,
@@ -224,7 +224,7 @@ const sampleProducts: Product[] = [
     discountPercentage: 10,
     colors: ["White"],
     hasAppleWarranty: true,
-    image: "/images/products/airpods/airpods-pro-2.png",
+    image: "/images/products/airpods/AIRPODS-PRO-2.png",
   },
 ]
 
