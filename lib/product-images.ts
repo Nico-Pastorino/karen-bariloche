@@ -7,82 +7,45 @@ export const productCategories = ["iPhones", "MacBook", "iPad", "AirPods", "Acce
 // Imágenes predefinidas por categoría
 export const defaultProductImages = {
   iPhones: [
-    // Imágenes originales
-    { id: "iphone15-pro-black", url: "/images/products/iphones/iphone15-pro-black.png", name: "iPhone 15 Pro Black" },
-    { id: "iphone15-pro-gray", url: "/images/products/iphones/iphone15-pro-gray.png", name: "iPhone 15 Pro Gray" },
-    {
-      id: "iphone14-pro-purple",
-      url: "/images/products/iphones/iphone14-pro-purple.png",
-      name: "iPhone 14 Pro Purple",
-    },
-    { id: "iphone14-blue", url: "/images/products/iphones/iphone14-blue.jpeg", name: "iPhone 14 Blue" },
-    { id: "iphone13-pink", url: "/images/products/iphones/iphone13-pink.png", name: "iPhone 13 Pink" },
-    { id: "iphone13-black", url: "/images/products/iphones/iphone13-black.png", name: "iPhone 13 Black" },
-    { id: "iphone13-white", url: "/images/products/iphones/iphone13-white.png", name: "iPhone 13 White" },
-    { id: "iphone12-red", url: "/images/products/iphones/iphone12-red.png", name: "iPhone 12 Red" },
-    {
-      id: "iphone12-mini-green",
-      url: "/images/products/iphones/iphone12-mini-green.png",
-      name: "iPhone 12 Mini Green",
-    },
-    { id: "iphone-colors", url: "/images/products/iphones/iphone-colors.png", name: "iPhone Color Options" },
+    // Imágenes 11
 
-    // Imágenes agregadas previamente
-    { id: "iphone14-pink", url: "/images/products/iphones/iphone14-pink.png", name: "iPhone 14 Rosa" },
+    { id: "iphone-11-pro-white", url: "/images/products/iphones/iphone-11-pro-white.png", name: "iPhone 11 Pro White" },
+    
+    // Imágenes 12
+
+    { id: "iphone-12-mini-verde", url: "/images/products/iphones/iphone-12-mini-verde.png", name: "iPhone 12 Mini Verde" },
+    { id: "iphone-12-pro-black", url: "/images/products/iphones/iphone-12-pro-black.png", name: "iPhone 12 Pro Black" },
+    { id: "iphone-12-todos", url: "/images/products/iphones/iphone-12-todos.png", name: "iPhone 12 Todos" },
+
+    // Imágenes 13
+
+    { id: "iphone-13-negro", url: "/images/products/iphones/iphone-13-negro.png", name: "iPhone 13 Negro" },
+    { id: "iphone-13-pink", url: "/images/products/iphones/iphone-13-pink.png", name: "iPhone 13 Pink" },
+    { id: "iphone-13-white", url: "/images/products/iphones/iphone-13-white.png", name: "iPhone 13 White" },
+
+    // Imágenes 14
+
+    { id: "iphone-14-blue", url: "/images/products/iphones/iphone-14-blue.png", name: "iPhone 14 Blue" },
     { id: "iphone-14-negro", url: "/images/products/iphones/iphone-14-negro.png", name: "iPhone 14 Negro" },
-    {
-      id: "iphone-14-pro-colores",
-      url: "/images/products/iphones/iphone-14-pro-colores.png",
-      name: "iPhone 14 Pro Colores",
-    },
+    { id: "iphone-14-pink", url: "/images/products/iphones/iphone-14-pink.png", name: "iPhone 14 Pink" },
+    { id: "iphone-14-todos", url: "/images/products/iphones/iphone-14-todos.png", name: "iPhone 14 Todos" },
+    { id: "iphone-14-pro-purple", url: "/images/products/iphones/iphone-14-pro-purple.png", name: "iPhone 14 Pro Purple" },
+    { id: "iphone-14-pro-todos", url: "/images/products/iphones/iphone-14-pro-todos.png", name: "iPhone 14 Pro Todos" },
+
+    // Imágenes 15
+
     { id: "iphone-15-negro", url: "/images/products/iphones/iphone-15-negro.png", name: "iPhone 15 Negro" },
-    { id: "iphone_15_colores", url: "/images/products/iphones/iphone_15_colores.png", name: "iPhone 15 Colores" },
-    { id: "iphone-16-pro-negro", url: "/images/products/iphones/iphone-16-pro-negro.png", name: "iPhone 16 Pro Negro" },
+    { id: "iphone-15-pro-todos", url: "/images/products/iphones/iphone-15-pro-todos.png", name: "iPhone 15 Pro Todos" },
+    { id: "iphone-15-pro-titanium-black", url: "/images/products/iphones/iphone-15-pro-titanium-black.png", name: "iPhone 15 Pro Titanium Black" },
+    { id: "iphone-15-pro-titanium-natural", url: "/images/products/iphones/iphone-15-pro-titanium-natural.png", name: "iPhone 15 Pro Titanium Natural" },
 
-    // Nuevas imágenes (asegurando que las rutas sean correctas)
-    {
-      id: "iphone-16-pro-white",
-      url: "/images/products/iphones/iphone-16-pro-white.png",
-      name: "iPhone 16 Pro Blanco",
-    },
-    { id: "iphones-15-pro", url: "/images/products/iphones/iphones-15-pro.png", name: "iPhone 15 Pro Colores" },
-    {
-      id: "iphones-15-pro-colores",
-      url: "/images/products/iphones/iphones-15-pro-colores.png",
-      name: "iPhone 15 Pro Todos los Colores",
-    },
-    {
-      id: "iphones-16-colores",
-      url: "/images/products/iphones/iphones-16-colores.png",
-      name: "iPhone 16 Todos los Colores",
-    },
-    {
-      id: "iphone-15-titanio-natural",
-      url: "/images/products/iphones/iphone-15-titanio-natural.png",
-      name: "iPhone 15 Titanio Natural",
-    },
-    {
-      id: "iphone-16-pro-desert-titanium",
-      url: "/images/products/iphones/iphone-16-pro-desert-titanium.png",
-      name: "iPhone 16 Pro Titanio Desierto",
-    },
+    // Imágenes 16
 
-    // Nuevas imágenes agregadas ahora
-    {
-      id: "iphone-16e-colors",
-      url: "/images/products/iphones/iphone-16e-colors.png",
-      name: "iPhone 16E Negro y Blanco",
-    },
-    {
-      id: "iphone-12-todos",
-      url: "/images/products/iphones/iphone-12-todos.png",
-      name: "iPhone 12 Todos los Colores",
-    },
-    {
-      id: "iphone-14-plus-red",
-      url: "/images/products/iphones/iphone-14-plus-red.png",
-      name: "iPhone 14 Plus Rojo",
-    },
+    { id: "iphone-16-todos", url: "/images/products/iphones/iphone-16-todos.png", name: "iPhone 16 Todos" },
+    { id: "iphone-16e-todos", url: "/images/products/iphones/iphone-16e-todos.png", name: "iPhone 16e Todos" },
+    { id: "iphone-16-pro-todos", url: "/images/products/iphones/iphone-16-pro-todos.png", name: "iPhone 16 Pro Todos" },
+    { id: "iphone-16-pro-white", url: "/images/products/iphones/iphone-16-pro-white.png", name: "iPhone 16 Pro White" },
+
   ],
   MacBook: [
     { id: "imac-24-blue", url: "/images/products/macbook/imac-24-blue.png", name: "iMac 24 pulgadas Azul" },

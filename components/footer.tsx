@@ -33,12 +33,11 @@ export function Footer() {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <Image
-              src="/images/kb-logo-new.png"
-              alt="Karen Bariloche"
-              width={40}
-              height={40}
-              className="rounded-full bg-white object-contain"
-              priority
+                src="/images/kb-logo-new.png"
+                alt="Karen Bariloche"
+                width={40}
+                height={40}
+                className="rounded-full"
               />
               <span className="font-bold text-xl">Karen Bariloche</span>
             </div>
