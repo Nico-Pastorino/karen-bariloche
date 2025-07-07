@@ -243,7 +243,7 @@ export default function HomePage() {
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage: "url('/images/products/bariloche-mountain2.png')",
+              backgroundImage: "url('/images/bariloche-mountain2.png')",
               backgroundPosition: "center 40%",
             }}
           >
