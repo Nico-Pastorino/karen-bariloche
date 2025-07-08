@@ -71,17 +71,16 @@ export const defaultProductImages = {
     { id: "airpods-pro-2", url: "/images/products/airpods/airpods-pro-2.png", name: "AirPods Pro 2" },
     { id: "airpods-3", url: "/images/products/airpods/airpods-3.png", name: "AirPods 3" },
     { id: "airpods-2", url: "/images/products/airpods/airpods-2.png", name: "AirPods 2" },
+    { id: "airpods-max", url: "/images/products/accesorios/airpods-max.png", name: "AirPods Max" },
   ],
   Accesorios: [
-    {
-      id: "apple-watch-se-2nd-gen",
-      url: "/images/products/accesorios/apple-watch-se-2nd-gen.png",
-      name: "Apple Watch SE 2ª Gen",
-    },
-    { id: "airpods-max-white", url: "/images/products/accesorios/airpods-max-white.png", name: "AirPods Max Blanco" },
+    
+    
     { id: "airtag-4", url: "/images/products/accesorios/airtag-4.png", name: "AirTag x4" },
     { id: "airtag-1", url: "/images/products/accesorios/airtag-4.png", name: "AirTag" },
     { id: "pencil", url: "/images/products/accesorios/pencil.png", name: "Apple Pencil" },
+    { id: "watch-ultra", url: "/images/products/accesorios/watch-ultra.png", name: "Apple Watch Ultra" },
+    { id: "watch-se", url: "/images/products/accesorios/watch-se.png", name: "Apple Watch Se" },
   ],
 }
 

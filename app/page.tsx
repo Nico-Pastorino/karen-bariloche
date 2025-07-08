@@ -240,16 +240,16 @@ export default function HomePage() {
         {/* Hero Section con imagen de fondo de Bariloche */}
         <section className="relative w-full py-32 md:py-48 lg:py-64 text-white">
           {/* Imagen de fondo */}
-          <div
+            <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
               backgroundImage: "url('/images/bariloche-mountain2.png')",
-              backgroundPosition: "center 40%", 
+              backgroundPosition: "center 10%", // Cambiado de 40% a 10% para subir la imagen
             }}
-          >
+            >
             {/* Overlay para mejorar la legibilidad del texto */}
             <div className="absolute inset-0 bg-black/30"></div>
-          </div>
+            </div>
 
           <div className="container relative mx-auto px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center space-y-6 mt-16">
