@@ -17,6 +17,7 @@ export const defaultProductImages = {
     { id: "iphone-12-mini-verde", url: "/images/products/iphones/iphone-12-mini-verde.png", name: "iPhone 12 Mini Verde" },
     { id: "iphone-12-pro-black", url: "/images/products/iphones/iphone-12-pro-black.png", name: "iPhone 12 Pro Black" },
     { id: "iphone-12-todos", url: "/images/products/iphones/iphone-12-todos.png", name: "iPhone 12 Todos" },
+    { id: "iphone-12-pro-todos", url: "/images/products/iphones/iphone-12-pro-todos.png", name: "iPhone 12 Pro Todos" },
 
     // Imágenes 13
 
