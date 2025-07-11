@@ -93,7 +93,12 @@ export function Footer() {
               </li>
               <li className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-gray-400" />
-                <span className="text-gray-300 text-sm">info@karenbariloche.com</span>
+                <a
+                  href="mailto:barilochekaren@gmail.com"
+                  className="text-gray-300 hover:text-white transition-colors text-sm underline"
+                >
+                  barilochekaren@gmail.com
+                </a>
               </li>
               <li className="flex items-center space-x-2">
                 <Instagram className="h-4 w-4 text-gray-400" />
