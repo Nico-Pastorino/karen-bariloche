@@ -55,7 +55,15 @@ export default function ContactPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-lg">info@karenbariloche.com</p>
+                  <li className="flex items-center space-x-2">
+                   <Mail className="h-4 w-4 text-gray-400" />
+                    <a
+                     href="mailto:barilochekaren@gmail.com"
+                     className="text-gray-300 hover:text-white transition-colors text-sm underline"
+                        >
+                         barilochekaren@gmail.com
+                    </a>
+                  </li>
                 </CardContent>
               </Card>
 
