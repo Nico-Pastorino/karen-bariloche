@@ -65,15 +65,17 @@ export const defaultProductImages = {
   iPad: [
     { id: "ipad-air-m1-gris", url: "/images/products/ipad/IPAD-AIR-M1-gris.png", name: "iPad Air M1 Gris Espacial" },
     { id: "ipad-pro-m1", url: "/images/products/ipad/IPAD-PRO-M1.png", name: "iPad Pro M1 Colores" },
-    { id: "ipad-mini-colores", url: "/images/products/ipad/ipad-mini-colores.png", name: "iPad Mini Colores" },
+    { id: "ipad-mini-colores", url: "/images/products/ipad/ipad-mini.png", name: "iPad Mini Colores" },
     { id: "ipad-pro-m2", url: "/images/products/ipad/iPad-Pro-M2.png", name: "iPad Pro M2 Gris Espacial" },
     { id: "ipad-pro-m4", url: "/images/products/ipad/ipad-pro-M4.png", name: "iPad Pro M4 Colores" },
+    { id: "ipad-a16-todos", url: "/images/products/ipad/ipad-a16-todos.png", name: "iPad A16 Colores" },
   ],
   AirPods: [
     { id: "airpods-pro-2", url: "/images/products/airpods/airpods-pro-2.png", name: "AirPods Pro 2" },
     { id: "airpods-3", url: "/images/products/airpods/airpods-3.png", name: "AirPods 3" },
     { id: "airpods-2", url: "/images/products/airpods/airpods-2.png", name: "AirPods 2" },
     { id: "airpods-max", url: "/images/products/airpods/airpods-max.png", name: "AirPods Max" },
+    
   ],
   Accesorios: [
     
