@@ -147,7 +147,7 @@ export default function ContactPage() {
                     <div>
                       <h4 className="font-semibold mb-1">¿Los productos tienen garantía?</h4>
                       <p className="text-gray-600 text-sm">
-                        Sí, todos nuestros productos Apple cuentan con garantía oficial de 1 año.
+                        Sí, todos nuestros productos Nuevos Apple cuentan con garantía oficial de 1 año. Y los Seminuevos con garantia por 3 meses.
                       </p>
                     </div>
                     <div>
