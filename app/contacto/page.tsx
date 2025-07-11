@@ -58,9 +58,9 @@ export default function ContactPage() {
                   <li className="flex items-center space-x-2">
                    <Mail className="h-4 w-4 text-gray-400" />
                     <a
-                     href="mailto:barilochekaren@gmail.com"
-                     className="text-gray-300 hover:text-white transition-colors text-sm underline"
-                        >
+                      href="mailto:barilochekaren@gmail.com"
+                      className="text-black hover:text-gray-700 transition-colors text-sm underline"
+                      >
                          barilochekaren@gmail.com
                     </a>
                   </li>
