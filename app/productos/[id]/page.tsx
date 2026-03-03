@@ -72,7 +72,6 @@ export default function ProductDetailPage() {
     colors = product.color ? [product.color] : ["Estándar"]
   }
 
-  const features = product.features || [product.description]
   const specifications = {
     ...(product.specifications || {}),
     ...(product.storageCapacity ? { Almacenamiento: product.storageCapacity } : {}),
@@ -230,8 +229,6 @@ export default function ProductDetailPage() {
               </div>
               <div className="text-sm text-gray-500">USD {product.price}</div>
             </div>
-            <p className="text-gray-500">{product.description}</p>
-
             {/* Mostrar capacidad de almacenamiento si existe */}
             {product.storageCapacity && (
               <div>
@@ -377,21 +374,13 @@ export default function ProductDetailPage() {
               </Card>
             )}
             <Separator />
-            <div>
-              <h3 className="font-medium mb-2">Características principales</h3>
-              <ul className="list-disc pl-5 space-y-1">
-                {features.map((feature, index) => (
-                  <li key={index}>{feature}</li>
-                ))}
-              </ul>
-            </div>
           </div>
         </div>
         <div className="mt-12">
           <Tabs defaultValue="details">
             <TabsList className="bg-gray-100 p-1 rounded-full">
               <TabsTrigger value="details" className="rounded-full data-[state=active]:bg-white">
-                Detalles
+                Descripción
               </TabsTrigger>
               <TabsTrigger value="specs" className="rounded-full data-[state=active]:bg-white">
                 Especificaciones
