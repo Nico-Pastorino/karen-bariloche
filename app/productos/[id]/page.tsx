@@ -102,35 +102,85 @@ export default function ProductDetailPage() {
     return key
   }
 
+  const palette = [
+    {
+      icon: "text-blue-600",
+      summaryBg: "bg-blue-50 hover:bg-blue-100",
+      summaryText: "text-blue-800",
+      chevron: "text-blue-600",
+      badge: "bg-blue-600",
+      cardBg: "from-blue-50 to-blue-100",
+    },
+    {
+      icon: "text-orange-600",
+      summaryBg: "bg-orange-50 hover:bg-orange-100",
+      summaryText: "text-orange-800",
+      chevron: "text-orange-600",
+      badge: "bg-orange-600",
+      cardBg: "from-orange-50 to-orange-100",
+    },
+    {
+      icon: "text-emerald-600",
+      summaryBg: "bg-emerald-50 hover:bg-emerald-100",
+      summaryText: "text-emerald-800",
+      chevron: "text-emerald-600",
+      badge: "bg-emerald-600",
+      cardBg: "from-emerald-50 to-emerald-100",
+    },
+    {
+      icon: "text-purple-600",
+      summaryBg: "bg-purple-50 hover:bg-purple-100",
+      summaryText: "text-purple-800",
+      chevron: "text-purple-600",
+      badge: "bg-purple-600",
+      cardBg: "from-purple-50 to-purple-100",
+    },
+    {
+      icon: "text-sky-600",
+      summaryBg: "bg-sky-50 hover:bg-sky-100",
+      summaryText: "text-sky-800",
+      chevron: "text-sky-600",
+      badge: "bg-sky-600",
+      cardBg: "from-sky-50 to-sky-100",
+    },
+    {
+      icon: "text-amber-600",
+      summaryBg: "bg-amber-50 hover:bg-amber-100",
+      summaryText: "text-amber-800",
+      chevron: "text-amber-600",
+      badge: "bg-amber-600",
+      cardBg: "from-amber-50 to-amber-100",
+    },
+    {
+      icon: "text-pink-600",
+      summaryBg: "bg-pink-50 hover:bg-pink-100",
+      summaryText: "text-pink-800",
+      chevron: "text-pink-600",
+      badge: "bg-pink-600",
+      cardBg: "from-pink-50 to-pink-100",
+    },
+    {
+      icon: "text-indigo-600",
+      summaryBg: "bg-indigo-50 hover:bg-indigo-100",
+      summaryText: "text-indigo-800",
+      chevron: "text-indigo-600",
+      badge: "bg-indigo-600",
+      cardBg: "from-indigo-50 to-indigo-100",
+    },
+  ]
+
   const getCardStyles = (key: string) => {
-    if (key === "visa") {
-      return {
-        icon: "text-blue-600",
-        summaryBg: "bg-blue-50 hover:bg-blue-100",
-        summaryText: "text-blue-800",
-        chevron: "text-blue-600",
-        badge: "bg-blue-600",
-        cardBg: "from-blue-50 to-blue-100",
-      }
+    if (key === "visa") return palette[0]
+    if (key === "naranja") return palette[1]
+
+    // Asignar un color estable basado en el nombre de la tarjeta
+    const normalized = key.toLowerCase()
+    let hash = 0
+    for (let i = 0; i < normalized.length; i++) {
+      hash = (hash * 31 + normalized.charCodeAt(i)) % 2147483647
     }
-    if (key === "naranja") {
-      return {
-        icon: "text-orange-600",
-        summaryBg: "bg-orange-50 hover:bg-orange-100",
-        summaryText: "text-orange-800",
-        chevron: "text-orange-600",
-        badge: "bg-orange-600",
-        cardBg: "from-orange-50 to-orange-100",
-      }
-    }
-    return {
-      icon: "text-gray-600",
-      summaryBg: "bg-gray-50 hover:bg-gray-100",
-      summaryText: "text-gray-800",
-      chevron: "text-gray-600",
-      badge: "bg-gray-700",
-      cardBg: "from-gray-50 to-gray-100",
-    }
+    const index = Math.abs(hash) % palette.length
+    return palette[index]
   }
 
   // Función para renderizar el indicador de batería
