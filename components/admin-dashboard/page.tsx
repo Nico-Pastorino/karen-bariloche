@@ -119,7 +119,7 @@ const columns: ColumnDef<any>[] = [
   {
     accessorKey: "age",
     header: () => <div className="text-right">Age</div>,
-    cell: (info) => <div className="text-right">{info.getValue()}</div>,
+    cell: (info) => <div className="text-right">{String(info.getValue() ?? "")}</div>,
   },
   {
     accessorKey: "city",

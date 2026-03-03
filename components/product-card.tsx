@@ -24,7 +24,9 @@ export function ProductCard({ product }: ProductCardProps) {
     }).format(price)
   }
 
-  const whatsappMessage = `Hola! Me interesa el ${product.name} - ${product.storage} - ${product.color}. ¿Está disponible?`
+  const storageLabel = product.storageCapacity || "Sin capacidad"
+  const colorLabel = product.color || "Sin color"
+  const whatsappMessage = `Hola! Me interesa el ${product.name} - ${storageLabel} - ${colorLabel}. ¿Está disponible?`
   const whatsappUrl = `https://wa.me/${config.whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
 
   return (
@@ -49,7 +51,7 @@ export function ProductCard({ product }: ProductCardProps) {
 
           <div className="flex flex-wrap gap-1">
             <Badge variant="outline" className="text-xs">
-              {product.storage}
+              {storageLabel}
             </Badge>
             {product.colors && product.colors.length > 0 ? (
               product.colors.map((color, index) => (

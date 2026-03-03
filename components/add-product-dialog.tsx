@@ -29,7 +29,21 @@ import { toast } from "@/components/ui/use-toast"
 export function AddProductDialog() {
   const { addProduct } = useStore()
   const [open, setOpen] = useState(false)
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    name: string
+    description: string
+    price: string
+    category: string
+    isNew: boolean
+    isFeatured: boolean
+    image: string
+    condition: "new" | "refurbished" | string
+    batteryPercentage: string
+    color: string
+    colors: string[]
+    storageCapacity: string
+    hasAppleWarranty: boolean
+  }>({
     name: "",
     description: "",
     price: "",
@@ -91,6 +105,7 @@ export function AddProductDialog() {
         description: formData.description,
         price: Number(formData.price),
         category: formData.category,
+        stock: 0,
         isNew: formData.isNew,
         isFeatured: formData.isFeatured,
         image: formData.image || "/placeholder.svg?height=300&width=300",
@@ -282,7 +297,6 @@ export function AddProductDialog() {
                             }))
                           }
                         }}
-                        className="flex-1"
                       >
                         <SelectTrigger className="rounded-md border-gray-300">
                           <SelectValue placeholder="Agregar color" />

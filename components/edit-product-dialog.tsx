@@ -312,7 +312,6 @@ export function EditProductDialog({ product }: EditProductDialogProps) {
                             }))
                           }
                         }}
-                        className="flex-1"
                       >
                         <SelectTrigger className="rounded-md border-gray-300">
                           <SelectValue placeholder="Agregar color" />

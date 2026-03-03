@@ -189,7 +189,7 @@ export function StoreConfigForm() {
                   <div className="mt-2 border rounded-md p-4 bg-gray-50">
                     <DragDropContext onDragEnd={handleDragEnd}>
                       <Droppable droppableId="sections" direction="vertical">
-                        {(provided, snapshot) => (
+                        {(provided: any, snapshot: any) => (
                           <ul
                             {...provided.droppableProps}
                             ref={provided.innerRef}
@@ -203,7 +203,7 @@ export function StoreConfigForm() {
 
                               return (
                                 <Draggable key={sectionId} draggableId={sectionId} index={index}>
-                                  {(provided, snapshot) => (
+                                  {(provided: any, snapshot: any) => (
                                     <li
                                       ref={provided.innerRef}
                                       {...provided.draggableProps}
