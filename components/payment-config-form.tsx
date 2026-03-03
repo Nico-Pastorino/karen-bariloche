@@ -4,7 +4,7 @@ import type React from "react"
 
 import { useState, useEffect } from "react"
 import { RefreshCw, Plus, X } from "lucide-react"
-import { useStore } from "@/lib/store"
+import { useStore, type FinancingOptions } from "@/lib/store"
 import { getDollarRates } from "@/lib/api"
 
 import { Button } from "@/components/ui/button"
@@ -17,13 +17,31 @@ export function PaymentConfigForm() {
   const { config, updateConfig } = useStore()
   const { toast } = useToast()
   const [isLoading, setIsLoading] = useState(false)
+  const [newCardName, setNewCardName] = useState("")
+
+  const normalizeFinancingOptions = (options: FinancingOptions): FinancingOptions => {
+    if (!options || typeof options !== "object") {
+      return {
+        visa: [{ installments: 1, interest: 0 }],
+        naranja: [{ installments: 1, interest: 0 }],
+      }
+    }
+
+    return Object.entries(options).reduce((acc, [key, value]) => {
+      acc[key] = Array.isArray(value) ? value.map((option) => ({ ...option })) : []
+      return acc
+    }, {} as FinancingOptions)
+  }
+
+  const getCardLabel = (key: string) => {
+    if (key === "visa") return "Visa / Mastercard"
+    if (key === "naranja") return "Naranja"
+    return key
+  }
   const [formData, setFormData] = useState({
     dollarRateBlue: config.dollarRateBlue,
     dollarRateMargin: config.dollarRateMargin,
-    financingOptions: {
-      visa: config.financingOptions.visa.map((option) => ({ ...option })),
-      naranja: config.financingOptions.naranja.map((option) => ({ ...option })),
-    },
+    financingOptions: normalizeFinancingOptions(config.financingOptions),
   })
 
   // Actualización automática del dólar blue cada 30 minutos
@@ -54,42 +72,28 @@ export function PaymentConfigForm() {
     setFormData((prev) => ({ ...prev, [name]: Number.parseFloat(value) || 0 }))
   }
 
-  const handleFinancingChange = (
-    cardType: "visa" | "naranja",
-    index: number,
-    field: "installments" | "interest",
-    value: string,
-  ) => {
-    setFormData((prev) => {
-      const newFinancingOptions = { ...prev.financingOptions }
-      newFinancingOptions[cardType][index] = {
-        ...newFinancingOptions[cardType][index],
-        [field]: field === "installments" ? Number.parseInt(value) || 0 : Number.parseFloat(value) || 0,
-      }
-      return { ...prev, financingOptions: newFinancingOptions }
-    })
-  }
-
   const handleInstallmentChange = (
-    cardType: "visa" | "naranja",
+    cardType: string,
     index: number,
     field: "installments" | "interest",
     value: string,
   ) => {
     setFormData((prev) => {
       const newFinancingOptions = { ...prev.financingOptions }
-      newFinancingOptions[cardType][index] = {
-        ...newFinancingOptions[cardType][index],
+      const currentOptions = newFinancingOptions[cardType] || []
+      currentOptions[index] = {
+        ...currentOptions[index],
         [field]: field === "installments" ? Number.parseInt(value) || 1 : Number.parseFloat(value) || 0,
       }
+      newFinancingOptions[cardType] = currentOptions
       return { ...prev, financingOptions: newFinancingOptions }
     })
   }
 
-  const addInstallmentOption = (cardType: "visa" | "naranja") => {
+  const addInstallmentOption = (cardType: string) => {
     setFormData((prev) => {
       const newFinancingOptions = { ...prev.financingOptions }
-      const currentOptions = newFinancingOptions[cardType]
+      const currentOptions = newFinancingOptions[cardType] || []
 
       // Encontrar el siguiente número de cuotas disponible
       const existingInstallments = currentOptions.map((opt) => opt.installments).sort((a, b) => a - b)
@@ -110,10 +114,37 @@ export function PaymentConfigForm() {
     })
   }
 
-  const removeInstallmentOption = (cardType: "visa" | "naranja", index: number) => {
+  const removeInstallmentOption = (cardType: string, index: number) => {
     setFormData((prev) => {
       const newFinancingOptions = { ...prev.financingOptions }
       newFinancingOptions[cardType] = newFinancingOptions[cardType].filter((_, i) => i !== index)
+      return { ...prev, financingOptions: newFinancingOptions }
+    })
+  }
+
+  const addCard = () => {
+    const name = newCardName.trim()
+    if (!name) return
+
+    setFormData((prev) => {
+      if (prev.financingOptions[name]) {
+        return prev
+      }
+      return {
+        ...prev,
+        financingOptions: {
+          ...prev.financingOptions,
+          [name]: [{ installments: 1, interest: 0 }],
+        },
+      }
+    })
+    setNewCardName("")
+  }
+
+  const removeCard = (cardType: string) => {
+    setFormData((prev) => {
+      const newFinancingOptions = { ...prev.financingOptions }
+      delete newFinancingOptions[cardType]
       return { ...prev, financingOptions: newFinancingOptions }
     })
   }
@@ -224,123 +255,92 @@ export function PaymentConfigForm() {
           </CardHeader>
           <CardContent>
             <div className="space-y-6">
-              {/* Visa / Mastercard */}
               <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <Label className="text-base font-medium">Visa / Mastercard</Label>
-                  <Button
-                    type="button"
-                    variant="outline"
-                    size="sm"
-                    onClick={() => addInstallmentOption("visa")}
-                    disabled={formData.financingOptions.visa.length >= 12}
-                  >
+                <Label className="text-base font-medium">Tarjetas</Label>
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <Input
+                    value={newCardName}
+                    onChange={(e) => setNewCardName(e.target.value)}
+                    placeholder="Nombre de la tarjeta (ej: Amex)"
+                  />
+                  <Button type="button" variant="outline" onClick={addCard}>
                     <Plus className="h-4 w-4 mr-1" />
-                    Agregar cuota
+                    Agregar tarjeta
                   </Button>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-                  {formData.financingOptions.visa.map((option, index) => (
-                    <div key={index} className="space-y-2 p-3 border rounded-lg relative">
-                      <div className="flex items-center justify-between">
-                        <Label className="text-sm font-medium">
-                          {option.installments} cuota{option.installments > 1 ? "s" : ""}
-                        </Label>
-                        {formData.financingOptions.visa.length > 1 && (
-                          <Button
-                            type="button"
-                            variant="ghost"
-                            size="sm"
-                            onClick={() => removeInstallmentOption("visa", index)}
-                            className="h-6 w-6 p-0 text-red-500 hover:text-red-700"
-                          >
-                            <X className="h-4 w-4" />
-                          </Button>
-                        )}
-                      </div>
-                      <div className="space-y-2">
-                        <Input
-                          type="number"
-                          min="1"
-                          max="12"
-                          value={option.installments}
-                          onChange={(e) => handleInstallmentChange("visa", index, "installments", e.target.value)}
-                          placeholder="Cuotas"
-                          className="text-sm"
-                        />
-                        <Input
-                          type="number"
-                          min="0"
-                          step="0.1"
-                          value={option.interest}
-                          onChange={(e) => handleInstallmentChange("visa", index, "interest", e.target.value)}
-                          placeholder="% Interés"
-                          className="text-sm"
-                        />
-                      </div>
-                    </div>
-                  ))}
                 </div>
               </div>
 
-              {/* Naranja */}
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <Label className="text-base font-medium">Naranja</Label>
-                  <Button
-                    type="button"
-                    variant="outline"
-                    size="sm"
-                    onClick={() => addInstallmentOption("naranja")}
-                    disabled={formData.financingOptions.naranja.length >= 12}
-                  >
-                    <Plus className="h-4 w-4 mr-1" />
-                    Agregar cuota
-                  </Button>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-                  {formData.financingOptions.naranja.map((option, index) => (
-                    <div key={index} className="space-y-2 p-3 border rounded-lg relative">
-                      <div className="flex items-center justify-between">
-                        <Label className="text-sm font-medium">
-                          {option.installments} cuota{option.installments > 1 ? "s" : ""}
-                        </Label>
-                        {formData.financingOptions.naranja.length > 1 && (
-                          <Button
-                            type="button"
-                            variant="ghost"
-                            size="sm"
-                            onClick={() => removeInstallmentOption("naranja", index)}
-                            className="h-6 w-6 p-0 text-red-500 hover:text-red-700"
-                          >
-                            <X className="h-4 w-4" />
-                          </Button>
-                        )}
-                      </div>
-                      <div className="space-y-2">
-                        <Input
-                          type="number"
-                          min="1"
-                          max="12"
-                          value={option.installments}
-                          onChange={(e) => handleInstallmentChange("naranja", index, "installments", e.target.value)}
-                          placeholder="Cuotas"
-                          className="text-sm"
-                        />
-                        <Input
-                          type="number"
-                          min="0"
-                          step="0.1"
-                          value={option.interest}
-                          onChange={(e) => handleInstallmentChange("naranja", index, "interest", e.target.value)}
-                          placeholder="% Interés"
-                          className="text-sm"
-                        />
-                      </div>
+              {Object.entries(formData.financingOptions).map(([cardType, options]) => (
+                <div key={cardType} className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <Label className="text-base font-medium">{getCardLabel(cardType)}</Label>
+                    <div className="flex items-center gap-2">
+                      <Button
+                        type="button"
+                        variant="outline"
+                        size="sm"
+                        onClick={() => addInstallmentOption(cardType)}
+                        disabled={options.length >= 12}
+                      >
+                        <Plus className="h-4 w-4 mr-1" />
+                        Agregar cuota
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => removeCard(cardType)}
+                        className="text-red-500 hover:text-red-700"
+                      >
+                        <X className="h-4 w-4 mr-1" />
+                        Eliminar tarjeta
+                      </Button>
                     </div>
-                  ))}
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+                    {options.map((option, index) => (
+                      <div key={index} className="space-y-2 p-3 border rounded-lg relative">
+                        <div className="flex items-center justify-between">
+                          <Label className="text-sm font-medium">
+                            {option.installments} cuota{option.installments > 1 ? "s" : ""}
+                          </Label>
+                          {options.length > 1 && (
+                            <Button
+                              type="button"
+                              variant="ghost"
+                              size="sm"
+                              onClick={() => removeInstallmentOption(cardType, index)}
+                              className="h-6 w-6 p-0 text-red-500 hover:text-red-700"
+                            >
+                              <X className="h-4 w-4" />
+                            </Button>
+                          )}
+                        </div>
+                        <div className="space-y-2">
+                          <Input
+                            type="number"
+                            min="1"
+                            max="12"
+                            value={option.installments}
+                            onChange={(e) => handleInstallmentChange(cardType, index, "installments", e.target.value)}
+                            placeholder="Cuotas"
+                            className="text-sm"
+                          />
+                          <Input
+                            type="number"
+                            min="0"
+                            step="0.1"
+                            value={option.interest}
+                            onChange={(e) => handleInstallmentChange(cardType, index, "interest", e.target.value)}
+                            placeholder="% Interés"
+                            className="text-sm"
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
           </CardContent>
         </Card>

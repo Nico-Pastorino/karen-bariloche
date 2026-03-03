@@ -119,15 +119,12 @@ export const HOME_SECTIONS = [
   { id: "features", name: "Características" },
 ]
 
-interface FinancingOption {
+export interface FinancingOption {
   installments: number
   interest: number
 }
 
-interface FinancingOptions {
-  visa: FinancingOption[]
-  naranja: FinancingOption[]
-}
+export type FinancingOptions = Record<string, FinancingOption[]>
 
 export interface StoreConfig {
   id?: number
