@@ -151,7 +151,7 @@ export function TradeInAdminTable() {
             </thead>
             <tbody>
               {tableModels.map((model, index) => (
-                <tr key={`${model.name}-${index}`} className="border-b border-gray-100">
+                <tr key={`model-${index}`} className="border-b border-gray-100">
                   <td className="sticky left-0 bg-white z-10 p-3">
                     <div className="flex items-center gap-2">
                       <Input
