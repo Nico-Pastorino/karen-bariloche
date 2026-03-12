@@ -116,6 +116,7 @@ export const HOME_SECTIONS = [
   { id: "featured", name: "Productos Destacados" },
   { id: "sale", name: "Ofertas Especiales" },
   { id: "refurbished", name: "Productos Seminuevos" },
+  { id: "tradein", name: "Plan Canje" },
   { id: "features", name: "Características" },
 ]
 
@@ -125,6 +126,19 @@ export interface FinancingOption {
 }
 
 export type FinancingOptions = Record<string, FinancingOption[]>
+
+export interface TradeInModel {
+  name: string
+  values: Record<string, Record<string, number | null>>
+}
+
+export interface TradeInConfig {
+  enabled: boolean
+  capacities: string[]
+  batteryConditions: string[]
+  models: TradeInModel[]
+  updatedAt?: string
+}
 
 export interface StoreConfig {
   id?: number
@@ -138,8 +152,10 @@ export interface StoreConfig {
   showFinancingOptions: boolean
   showSaleSection: boolean
   showRefurbishedSection: boolean
+  showTradeInSection: boolean
   sectionsOrder?: string[] // Nueva propiedad para el orden de las secciones
   financingOptions: FinancingOptions
+  tradeIn: TradeInConfig
   lastDollarUpdate?: string
   createdAt?: string
   updatedAt?: string
@@ -157,7 +173,8 @@ const defaultConfig: StoreConfig = {
   showFinancingOptions: true,
   showSaleSection: true,
   showRefurbishedSection: true,
-  sectionsOrder: ["sale", "refurbished", "featured", "features"], // Orden predeterminado
+  showTradeInSection: true,
+  sectionsOrder: ["sale", "refurbished", "tradein", "featured", "features"], // Orden predeterminado
   financingOptions: {
     visa: [
       { installments: 1, interest: 0 },
@@ -171,6 +188,41 @@ const defaultConfig: StoreConfig = {
       { installments: 3, interest: 15 },
       { installments: 6, interest: 25 },
     ],
+  },
+  tradeIn: {
+    enabled: true,
+    capacities: ["64GB", "128GB", "256GB", "512GB"],
+    batteryConditions: ["90+", "-90%"],
+    models: [
+      {
+        name: "12",
+        values: {
+          "64GB": { "90+": 170, "-90%": 160 },
+          "128GB": { "90+": 180, "-90%": 170 },
+          "256GB": { "90+": 200, "-90%": 180 },
+          "512GB": { "90+": 220, "-90%": 200 },
+        },
+      },
+      {
+        name: "12 Pro",
+        values: {
+          "64GB": { "90+": 190, "-90%": 170 },
+          "128GB": { "90+": 210, "-90%": 190 },
+          "256GB": { "90+": 230, "-90%": 210 },
+          "512GB": { "90+": 250, "-90%": 230 },
+        },
+      },
+      {
+        name: "12 Pro Max",
+        values: {
+          "64GB": { "90+": 220, "-90%": 200 },
+          "128GB": { "90+": 240, "-90%": 220 },
+          "256GB": { "90+": 260, "-90%": 240 },
+          "512GB": { "90+": 280, "-90%": 260 },
+        },
+      },
+    ],
+    updatedAt: new Date().toISOString(),
   },
   lastDollarUpdate: new Date().toISOString(),
 }
@@ -296,11 +348,18 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
 
       // Procesar datos cargados
       if (configData && !isOffline) {
-        setConfig(configData)
+        const mergedConfig: StoreConfig = {
+          ...defaultConfig,
+          ...configData,
+          financingOptions: configData.financingOptions || defaultConfig.financingOptions,
+          tradeIn: configData.tradeIn || defaultConfig.tradeIn,
+          sectionsOrder: configData.sectionsOrder || defaultConfig.sectionsOrder,
+        }
+        setConfig(mergedConfig)
 
         // Recalcular precios ARS para todos los productos
         const updatedProducts = productsData.map((product) => {
-          const totalRate = configData.dollarRateBlue + configData.dollarRateMargin
+          const totalRate = mergedConfig.dollarRateBlue + mergedConfig.dollarRateMargin
           return {
             ...product,
             priceARS: Math.round(product.price * totalRate),

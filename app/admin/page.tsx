@@ -9,6 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { AdminProductsTable } from "@/components/admin-products-table"
 import { StoreConfigForm } from "@/components/store-config-form"
 import { PaymentConfigForm } from "@/components/payment-config-form"
+import { TradeInAdminTable } from "@/components/trade-in-admin-table"
 import { useStore } from "@/lib/store"
 import { LoadingSpinner } from "@/components/loading-spinner"
 
@@ -93,6 +94,7 @@ export default function AdminPage() {
             <TabsTrigger value="products">Productos</TabsTrigger>
             <TabsTrigger value="settings">Configuración General</TabsTrigger>
             <TabsTrigger value="payments">Métodos de Pago</TabsTrigger>
+            <TabsTrigger value="tradein">Canje</TabsTrigger>
           </TabsList>
           <TabsContent value="products" className="space-y-4">
             <div className="flex justify-between">
@@ -107,6 +109,10 @@ export default function AdminPage() {
           <TabsContent value="payments" className="space-y-4">
             <h3 className="text-xl font-bold">Métodos de Pago</h3>
             <PaymentConfigForm />
+          </TabsContent>
+          <TabsContent value="tradein" className="space-y-4">
+            <h3 className="text-xl font-bold">Plan Canje</h3>
+            <TradeInAdminTable />
           </TabsContent>
         </Tabs>
       </div>

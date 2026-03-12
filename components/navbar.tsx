@@ -16,6 +16,16 @@ export function Navbar() {
   const [searchQuery, setSearchQuery] = useState("")
   const router = useRouter()
   const { products } = useStore()
+  const handlePlanCanjeClick = (e: React.MouseEvent) => {
+    if (typeof window !== "undefined" && window.location.pathname === "/") {
+      e.preventDefault()
+      setIsMenuOpen(false)
+      const target = document.getElementById("plan-canje")
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" })
+      }
+    }
+  }
 
   // Función para manejar la búsqueda
   const handleSearch = (e: React.FormEvent) => {
@@ -75,6 +85,13 @@ export function Navbar() {
             </Link>
             <Link href="/productos" className="text-gray-600 hover:text-gray-900 transition-colors">
               Productos
+            </Link>
+            <Link
+              href="/#plan-canje"
+              className="text-gray-600 hover:text-gray-900 transition-colors"
+              onClick={handlePlanCanjeClick}
+            >
+              Plan Canje
             </Link>
             <Link href="/contacto" className="text-gray-600 hover:text-gray-900 transition-colors">
               Contacto
@@ -168,6 +185,13 @@ export function Navbar() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Productos
+              </Link>
+              <Link
+                href="/#plan-canje"
+                className="text-gray-600 hover:text-gray-900 transition-colors py-2"
+                onClick={handlePlanCanjeClick}
+              >
+                Plan Canje
               </Link>
               <Link
                 href="/contacto"

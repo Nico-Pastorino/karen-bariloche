@@ -8,6 +8,7 @@ import { useParams } from "next/navigation"
 import { useStore } from "@/lib/store"
 import type { Product } from "@/lib/store"
 import { Navbar } from "@/components/navbar"
+import { TradeInCalculator } from "@/components/trade-in-calculator"
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -279,24 +280,25 @@ export default function ProductDetailPage() {
               </div>
               <div className="text-sm text-gray-500">USD {product.price}</div>
             </div>
-            {/* Mostrar capacidad de almacenamiento si existe */}
-            {product.storageCapacity && (
-              <div>
-                <h3 className="font-medium mb-2">Capacidad</h3>
-                <div className="inline-block px-4 py-2 bg-gray-100 rounded-full text-gray-800 font-medium">
-                  {product.storageCapacity}
+            <div className="grid grid-cols-2 gap-4">
+              {product.storageCapacity && (
+                <div>
+                  <h3 className="font-medium mb-2">Capacidad</h3>
+                  <div className="inline-block px-4 py-2 bg-gray-100 rounded-full text-gray-800 font-medium">
+                    {product.storageCapacity}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            <div>
-              <h3 className="font-medium mb-2">{colors.length > 1 ? "Colores disponibles" : "Color"}</h3>
-              <div className="flex flex-wrap gap-2">
-                {colors.map((color, index) => (
-                  <Button key={index} variant="outline" className="rounded-full">
-                    {color}
-                  </Button>
-                ))}
+              <div>
+                <h3 className="font-medium mb-2">{colors.length > 1 ? "Colores disponibles" : "Color"}</h3>
+                <div className="flex flex-wrap gap-2">
+                  {colors.map((color, index) => (
+                    <Button key={index} variant="outline" className="rounded-full">
+                      {color}
+                    </Button>
+                  ))}
+                </div>
               </div>
             </div>
             <div>
@@ -422,6 +424,9 @@ export default function ProductDetailPage() {
                   </div>
                 </CardContent>
               </Card>
+            )}
+            {config.tradeIn?.enabled && product.category === "iPhones" && (
+              <TradeInCalculator variant="product" product={product} />
             )}
             <Separator />
           </div>

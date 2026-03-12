@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import ProductList from "@/components/product-list"
+import { TradeInSection } from "@/components/trade-in-section"
 import type { Product } from "@/lib/store"
 
 export default function HomePage() {
@@ -152,6 +153,13 @@ export default function HomePage() {
         </div>
       </section>
     ),
+    tradein: config.showTradeInSection && config.tradeIn?.enabled && (
+      <section key="tradein" className="w-full py-16 md:py-24 bg-slate-50">
+        <div className="container mx-auto px-4 md:px-6">
+          <TradeInSection />
+        </div>
+      </section>
+    ),
     features: (
       <section key="features" className="w-full py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
@@ -227,7 +235,15 @@ export default function HomePage() {
   }
 
   // Obtener el orden de las secciones
-  const sectionsOrder = config.sectionsOrder || ["sale", "refurbished", "featured", "features"]
+  const sectionsOrder = (() => {
+    const defaultOrder = ["sale", "refurbished", "tradein", "featured", "features"]
+    const current = config.sectionsOrder || defaultOrder
+    const cleaned = current.filter((id) => defaultOrder.includes(id))
+    defaultOrder.forEach((id) => {
+      if (!cleaned.includes(id)) cleaned.push(id)
+    })
+    return cleaned
+  })()
 
   // Debug: mostrar estado actual
   console.log("HomePage render - Loading:", loading, "Products:", products.length, "HasInitialized:", hasInitialized)

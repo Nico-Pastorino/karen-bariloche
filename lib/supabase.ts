@@ -50,7 +50,9 @@ export type ConfigRow = {
   show_featured_products: boolean
   show_financing_options: boolean
   show_sale_section: boolean
+  show_trade_in_section: boolean
   financing_options: any
+  trade_in: any
   last_dollar_update: string | null
   created_at: string
   updated_at: string

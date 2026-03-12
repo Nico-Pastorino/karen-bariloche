@@ -5,7 +5,7 @@ import type React from "react"
 import { useState } from "react"
 import { useStore } from "@/lib/store"
 import { HOME_SECTIONS } from "@/lib/store"
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd"
+import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd"
 import { GripVertical } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -19,6 +19,14 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export function StoreConfigForm() {
   const { config, updateConfig } = useStore()
+  const normalizeSectionsOrder = (order: string[]) => {
+    const defaultOrder = HOME_SECTIONS.map((section) => section.id)
+    const cleaned = order.filter((id) => defaultOrder.includes(id))
+    defaultOrder.forEach((id) => {
+      if (!cleaned.includes(id)) cleaned.push(id)
+    })
+    return cleaned
+  }
   const [formData, setFormData] = useState({
     storeName: config.storeName,
     storeDescription: config.storeDescription,
@@ -27,7 +35,10 @@ export function StoreConfigForm() {
     showFinancingOptions: config.showFinancingOptions,
     showSaleSection: config.showSaleSection,
     showRefurbishedSection: config.showRefurbishedSection || true,
-    sectionsOrder: config.sectionsOrder || ["sale", "refurbished", "featured", "features"],
+    showTradeInSection: config.showTradeInSection,
+    sectionsOrder: normalizeSectionsOrder(
+      config.sectionsOrder || ["sale", "refurbished", "tradein", "featured", "features"],
+    ),
   })
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -69,6 +80,7 @@ export function StoreConfigForm() {
         showFinancingOptions: formData.showFinancingOptions,
         showSaleSection: formData.showSaleSection,
         showRefurbishedSection: formData.showRefurbishedSection,
+        showTradeInSection: formData.showTradeInSection,
         sectionsOrder: formData.sectionsOrder,
       })
 
@@ -179,6 +191,14 @@ export function StoreConfigForm() {
                   />
                   <Label htmlFor="showFinancingOptions">Mostrar opciones de financiación en productos</Label>
                 </div>
+                <div className="flex items-center space-x-2">
+                  <Switch
+                    id="showTradeInSection"
+                    checked={formData.showTradeInSection}
+                    onCheckedChange={(checked) => handleSwitchChange("showTradeInSection", checked)}
+                  />
+                  <Label htmlFor="showTradeInSection">Mostrar sección Plan Canje en la página principal</Label>
+                </div>
 
                 <div className="mt-6 space-y-2">
                   <h3 className="text-sm font-medium">Orden de las Secciones</h3>
@@ -188,7 +208,7 @@ export function StoreConfigForm() {
 
                   <div className="mt-2 border rounded-md p-4 bg-gray-50">
                     <DragDropContext onDragEnd={handleDragEnd}>
-                      <Droppable droppableId="sections" direction="vertical">
+                      <Droppable droppableId="sections" direction="vertical" isDropDisabled={false}>
                         {(provided: any, snapshot: any) => (
                           <ul
                             {...provided.droppableProps}
@@ -207,9 +227,10 @@ export function StoreConfigForm() {
                                     <li
                                       ref={provided.innerRef}
                                       {...provided.draggableProps}
+                                      {...provided.dragHandleProps}
                                       className={`
                                         flex items-center p-4 bg-white rounded-lg border-2 shadow-sm
-                                        transition-all duration-200 cursor-move
+                                        transition-all duration-200 cursor-grab active:cursor-grabbing
                                         ${
                                           snapshot.isDragging
                                             ? "border-blue-400 shadow-lg scale-105 rotate-1 bg-blue-50"
@@ -224,10 +245,7 @@ export function StoreConfigForm() {
                                           : provided.draggableProps.style?.transform,
                                       }}
                                     >
-                                      <div
-                                        {...provided.dragHandleProps}
-                                        className="flex items-center justify-center w-8 h-8 mr-3 rounded-md bg-gray-100 hover:bg-gray-200 transition-colors"
-                                      >
+                                      <div className="flex items-center justify-center w-8 h-8 mr-3 rounded-md bg-gray-100 hover:bg-gray-200 transition-colors">
                                         <GripVertical className="h-5 w-5 text-gray-500" />
                                       </div>
                                       <div className="flex-1">
@@ -236,6 +254,7 @@ export function StoreConfigForm() {
                                           {section.id === "sale" && "Productos en oferta con descuentos especiales"}
                                           {section.id === "refurbished" && "Productos seminuevos con garantía"}
                                           {section.id === "featured" && "Productos destacados seleccionados"}
+                                          {section.id === "tradein" && "Plan canje para renovar tu iPhone"}
                                           {section.id === "features" && "Características y beneficios de la tienda"}
                                         </p>
                                       </div>

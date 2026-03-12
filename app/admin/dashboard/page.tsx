@@ -12,6 +12,7 @@ import { PaymentConfigForm } from "@/components/payment-config-form"
 import { StoreConfigForm } from "@/components/store-config-form"
 import { UpdateDollarButton } from "@/components/update-dollar-button"
 import { LowStockAlert } from "@/components/low-stock-alert"
+import { TradeInAdminTable } from "@/components/trade-in-admin-table"
 
 export default function AdminDashboardPage() {
   const { config } = useStore()
@@ -58,6 +59,9 @@ export default function AdminDashboardPage() {
             <TabsTrigger value="payments" className="rounded-full data-[state=active]:bg-white">
               Métodos de Pago
             </TabsTrigger>
+            <TabsTrigger value="tradein" className="rounded-full data-[state=active]:bg-white">
+              Canje
+            </TabsTrigger>
           </TabsList>
           <TabsContent value="products" className="space-y-4">
             <div className="flex justify-between">
@@ -72,6 +76,10 @@ export default function AdminDashboardPage() {
           <TabsContent value="payments" className="space-y-4">
             <h3 className="text-xl font-bold">Métodos de Pago</h3>
             <PaymentConfigForm />
+          </TabsContent>
+          <TabsContent value="tradein" className="space-y-4">
+            <h3 className="text-xl font-bold">Plan Canje</h3>
+            <TradeInAdminTable />
           </TabsContent>
         </Tabs>
       </div>
