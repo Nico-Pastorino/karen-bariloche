@@ -64,6 +64,7 @@ export const APPLE_COLORS = [
   "Pink",
   "Teal",
   "Ultramarine",
+  "Orange (Naranja)",
 
   // Colores clásicos de Apple (modelos anteriores)
   "Space Gray",

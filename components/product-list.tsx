@@ -2,9 +2,11 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import { useMemo } from "react"
 import { ArrowRight } from "lucide-react"
 import { useStore } from "@/lib/store"
 import type { Product } from "@/lib/store"
+import { buildProductInquiryMessage } from "@/lib/whatsapp"
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -20,13 +22,17 @@ export default function ProductList({ products, showOnlyOnSale = false }: Produc
 
   // Filtrar productos en oferta si es necesario
   const filteredProducts = showOnlyOnSale ? products.filter((product) => product.isOnSale) : products
+  const sortedProducts = useMemo(
+    () => [...filteredProducts].sort((a, b) => b.price - a.price),
+    [filteredProducts],
+  )
 
   // Función para generar mensaje de WhatsApp
   const generateWhatsAppMessage = (product: Product) => {
-    return `Hola, estoy interesado en el ${product.name} que vi en ${config.storeName}. ¿Me podrías dar más información?`
+    return buildProductInquiryMessage(product, config.storeName)
   }
 
-  if (filteredProducts.length === 0) {
+  if (sortedProducts.length === 0) {
     return (
       <div className="text-center py-12">
         <h3 className="text-lg font-medium">No hay productos disponibles</h3>
@@ -39,7 +45,7 @@ export default function ProductList({ products, showOnlyOnSale = false }: Produc
 
   return (
     <div className="space-y-6">
-      {filteredProducts.map((product) => (
+      {sortedProducts.map((product) => (
         <Card key={product.id} className="overflow-hidden product-card border-gray-200">
           <CardContent className="p-0">
             <div className="flex flex-col md:flex-row">

@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { useStore } from "@/lib/store"
 import type { Product } from "@/lib/store"
+import { getProductConditionLabel } from "@/lib/whatsapp"
 
 interface ProductCardProps {
   product: Product
@@ -26,7 +27,8 @@ export function ProductCard({ product }: ProductCardProps) {
 
   const storageLabel = product.storageCapacity || "Sin capacidad"
   const colorLabel = product.color || "Sin color"
-  const whatsappMessage = `Hola! Me interesa el ${product.name} - ${storageLabel} - ${colorLabel}. ¿Está disponible?`
+  const conditionLabel = getProductConditionLabel(product)
+  const whatsappMessage = `Hola! Me interesa el ${product.name} (${conditionLabel}) - ${storageLabel} - ${colorLabel}. ¿Está disponible?`
   const whatsappUrl = `https://wa.me/${config.whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
 
   return (

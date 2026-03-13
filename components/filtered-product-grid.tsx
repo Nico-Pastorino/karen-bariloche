@@ -5,6 +5,7 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { useStore } from "@/lib/store"
 import type { Product } from "@/lib/store"
+import { buildProductInquiryMessage } from "@/lib/whatsapp"
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -19,7 +20,7 @@ export function FilteredProductGrid({ products }: FilteredProductGridProps) {
 
   // Función para generar mensaje de WhatsApp
   const generateWhatsAppMessage = (product: Product) => {
-    return `Hola, estoy interesado en el ${product.name} que vi en ${config.storeName}. ¿Me podrías dar más información?`
+    return buildProductInquiryMessage(product, config.storeName)
   }
 
   if (products.length === 0) {

@@ -23,7 +23,7 @@ export default function ProductsPage() {
   const [activeTab, setActiveTab] = useState("todos")
 
   // Categorías actualizadas
-  const categories = ["iPhones", "MacBook", "iPad", "AirPods", "iMac", "Accesorios"]
+  const categories = ["iPhones", "MacBook", "iPad", "AirPods", "Apple Watch", "iMac", "Accesorios"]
 
   // Verificar si hay un filtro en la URL
   useEffect(() => {

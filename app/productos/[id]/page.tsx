@@ -7,6 +7,7 @@ import { ArrowLeft, CreditCard, Battery, ShieldCheck, ShieldX } from "lucide-rea
 import { useParams } from "next/navigation"
 import { useStore } from "@/lib/store"
 import type { Product } from "@/lib/store"
+import { buildProductInquiryMessage, getProductConditionLabel } from "@/lib/whatsapp"
 import { Navbar } from "@/components/navbar"
 import { TradeInCalculator } from "@/components/trade-in-calculator"
 
@@ -43,7 +44,7 @@ export default function ProductDetailPage() {
 
   // Función para generar mensaje de WhatsApp
   const generateWhatsAppMessage = () => {
-    return `Hola, estoy interesado en el ${product.name} que vi en ${config.storeName}. ¿Me podrías dar más información?`
+    return buildProductInquiryMessage(product, config.storeName)
   }
 
   // Asegurarse de que el producto tenga las propiedades necesarias
@@ -392,7 +393,9 @@ export default function ProductDetailPage() {
                                   </div>
                                 ))}
                                 <Link
-                                  href={`https://wa.me/${config.whatsappNumber}?text=${encodeURIComponent(`Hola, me interesa conocer más sobre las opciones de financiación para el ${product.name}`)}`}
+                                  href={`https://wa.me/${config.whatsappNumber}?text=${encodeURIComponent(
+                                    `Hola, me interesa conocer más sobre las opciones de financiación para el ${product.name} (${getProductConditionLabel(product)}).`,
+                                  )}`}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className="block"

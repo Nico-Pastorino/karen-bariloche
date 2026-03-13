@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react"
 import { ArrowRightLeft, Sparkles } from "lucide-react"
 import { useStore } from "@/lib/store"
 import type { Product } from "@/lib/store"
+import { getProductConditionLabel } from "@/lib/whatsapp"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -46,9 +47,36 @@ export function TradeInCalculator({ variant = "home", product }: TradeInCalculat
   const priceAfterARS =
     product?.priceARS && tradeInValue !== null ? Math.max(product.priceARS - tradeInValueARS!, 0) : null
 
-  const whatsappMessage = product
-    ? `Hola, quiero hacer plan canje por el ${product.name}. Tengo un iPhone ${model} ${capacity} con batería ${battery}.`
-    : `Hola, quiero coordinar una evaluación para plan canje. Tengo un iPhone ${model} ${capacity} con batería ${battery}.`
+  const formatMoney = (value: number) => value.toLocaleString("es-AR")
+
+  const whatsappMessage = useMemo(() => {
+    const selectedProductLabel = product
+      ? `${product.name} (${getProductConditionLabel(product)})`
+      : "Sin producto definido"
+    const usedDeviceLabel = `${model || "—"} ${capacity || "—"} (Batería ${battery || "—"})`
+    const tradeInUsdLabel = tradeInValue !== null ? `US$ ${tradeInValue}` : "Sin cotización"
+    const tradeInArsLabel = tradeInValueARS !== null ? `$ ${formatMoney(tradeInValueARS)} ARS` : "Sin cotización"
+    const finalUsdLabel = priceAfterUSD !== null ? `US$ ${priceAfterUSD}` : "A definir"
+    const finalArsLabel = priceAfterARS !== null ? `$ ${formatMoney(priceAfterARS)} ARS` : "A definir"
+
+    if (product) {
+      return [
+        "Hola, quiero realizar el plan canje.",
+        "",
+        `Producto consultado: ${selectedProductLabel}`,
+        `Equipo que entrego: ${usedDeviceLabel}`,
+        `Valor estimado de mi usado: ${tradeInUsdLabel} (${tradeInArsLabel})`,
+        `Monto final a pagar: ${finalUsdLabel} (${finalArsLabel})`,
+      ].join("\n")
+    }
+
+    return [
+      "Hola, quiero coordinar una evaluación para plan canje.",
+      "",
+      `Equipo que entrego: ${usedDeviceLabel}`,
+      `Valor estimado de mi usado: ${tradeInUsdLabel} (${tradeInArsLabel})`,
+    ].join("\n")
+  }, [product, model, capacity, battery, tradeInValue, tradeInValueARS, priceAfterUSD, priceAfterARS])
 
   return (
     <Card className="border-gray-200 shadow-sm rounded-2xl bg-white">
