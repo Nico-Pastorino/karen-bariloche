@@ -33,6 +33,14 @@ export function PaymentConfigForm() {
     }, {} as FinancingOptions)
   }
 
+  const sortInstallmentOptions = (options: FinancingOptions[string] = []) =>
+    [...options].sort((a, b) => a.installments - b.installments)
+
+  const hasDuplicateInstallments = (cardType: string, installments: number, currentIndex: number) => {
+    const currentOptions = formData.financingOptions[cardType] || []
+    return currentOptions.some((option, index) => index !== currentIndex && option.installments === installments)
+  }
+
   const getCardLabel = (key: string) => {
     if (key === "visa") return "Visa / Mastercard"
     if (key === "naranja") return "Naranja"
@@ -78,14 +86,32 @@ export function PaymentConfigForm() {
     field: "installments" | "interest",
     value: string,
   ) => {
+    const parsedValue = field === "installments" ? Number.parseInt(value, 10) : Number.parseFloat(value)
+
+    if (field === "installments") {
+      if (!Number.isFinite(parsedValue) || parsedValue < 1) {
+        return
+      }
+
+      if (hasDuplicateInstallments(cardType, parsedValue, index)) {
+        toast({
+          title: "Cantidad duplicada",
+          description: "Cada tarjeta debe tener una cantidad de cuotas única.",
+          variant: "destructive",
+        })
+        return
+      }
+    }
+
     setFormData((prev) => {
       const newFinancingOptions = { ...prev.financingOptions }
       const currentOptions = newFinancingOptions[cardType] || []
-      currentOptions[index] = {
+      const updatedOptions = [...currentOptions]
+      updatedOptions[index] = {
         ...currentOptions[index],
-        [field]: field === "installments" ? Number.parseInt(value) || 1 : Number.parseFloat(value) || 0,
+        [field]: field === "installments" ? parsedValue : Number.isFinite(parsedValue) ? parsedValue : 0,
       }
-      newFinancingOptions[cardType] = currentOptions
+      newFinancingOptions[cardType] = field === "installments" ? sortInstallmentOptions(updatedOptions) : updatedOptions
       return { ...prev, financingOptions: newFinancingOptions }
     })
   }
@@ -94,21 +120,13 @@ export function PaymentConfigForm() {
     setFormData((prev) => {
       const newFinancingOptions = { ...prev.financingOptions }
       const currentOptions = newFinancingOptions[cardType] || []
+      const highestInstallment = currentOptions.reduce((max, option) => Math.max(max, option.installments), 0)
+      const nextInstallments = highestInstallment + 1
 
-      // Encontrar el siguiente número de cuotas disponible
-      const existingInstallments = currentOptions.map((opt) => opt.installments).sort((a, b) => a - b)
-      let nextInstallments = 1
-
-      for (let i = 1; i <= 12; i++) {
-        if (!existingInstallments.includes(i)) {
-          nextInstallments = i
-          break
-        }
-      }
-
-      newFinancingOptions[cardType] = [...currentOptions, { installments: nextInstallments, interest: 0 }].sort(
-        (a, b) => a.installments - b.installments,
-      )
+      newFinancingOptions[cardType] = sortInstallmentOptions([
+        ...currentOptions,
+        { installments: nextInstallments, interest: 0 },
+      ])
 
       return { ...prev, financingOptions: newFinancingOptions }
     })
@@ -152,12 +170,27 @@ export function PaymentConfigForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
 
+    const hasInvalidInstallments = Object.values(formData.financingOptions).some((options) =>
+      options.some((option) => !Number.isInteger(option.installments) || option.installments < 1),
+    )
+
+    if (hasInvalidInstallments) {
+      toast({
+        title: "Revisá las cuotas",
+        description: "Cada plan debe tener una cantidad de cuotas válida mayor o igual a 1.",
+        variant: "destructive",
+      })
+      return
+    }
+
     // Actualizar la configuración usando el contexto
     updateConfig({
       ...config,
       dollarRateBlue: formData.dollarRateBlue,
       dollarRateMargin: formData.dollarRateMargin,
-      financingOptions: formData.financingOptions,
+      financingOptions: Object.fromEntries(
+        Object.entries(formData.financingOptions).map(([cardType, options]) => [cardType, sortInstallmentOptions(options)]),
+      ),
     })
 
     // Mostrar mensaje de éxito
@@ -270,6 +303,13 @@ export function PaymentConfigForm() {
                 </div>
               </div>
 
+              <div className="rounded-lg border border-dashed border-slate-200 bg-slate-50/80 px-4 py-3">
+                <p className="text-sm font-medium text-slate-900">Carga libre de cuotas</p>
+                <p className="mt-1 text-sm text-slate-600">
+                  Podés ingresar cualquier cantidad numérica de cuotas por tarjeta, por ejemplo 2, 18 o 24.
+                </p>
+              </div>
+
               {Object.entries(formData.financingOptions).map(([cardType, options]) => (
                 <div key={cardType} className="space-y-3">
                   <div className="flex items-center justify-between">
@@ -280,7 +320,6 @@ export function PaymentConfigForm() {
                         variant="outline"
                         size="sm"
                         onClick={() => addInstallmentOption(cardType)}
-                        disabled={options.length >= 12}
                       >
                         <Plus className="h-4 w-4 mr-1" />
                         Agregar cuota
@@ -316,25 +355,36 @@ export function PaymentConfigForm() {
                             </Button>
                           )}
                         </div>
-                        <div className="space-y-2">
-                          <Input
-                            type="number"
-                            min="1"
-                            max="12"
-                            value={option.installments}
-                            onChange={(e) => handleInstallmentChange(cardType, index, "installments", e.target.value)}
-                            placeholder="Cuotas"
-                            className="text-sm"
-                          />
-                          <Input
-                            type="number"
-                            min="0"
-                            step="0.1"
-                            value={option.interest}
-                            onChange={(e) => handleInstallmentChange(cardType, index, "interest", e.target.value)}
-                            placeholder="% Interés"
-                            className="text-sm"
-                          />
+                        <div className="space-y-3">
+                          <div className="space-y-1.5">
+                            <Label className="text-xs font-medium uppercase tracking-wide text-slate-500">
+                              Cantidad de cuotas
+                            </Label>
+                            <Input
+                              type="number"
+                              min="1"
+                              step="1"
+                              inputMode="numeric"
+                              value={option.installments}
+                              onChange={(e) => handleInstallmentChange(cardType, index, "installments", e.target.value)}
+                              placeholder="Ej: 24"
+                              className="text-sm"
+                            />
+                          </div>
+                          <div className="space-y-1.5">
+                            <Label className="text-xs font-medium uppercase tracking-wide text-slate-500">
+                              Interés
+                            </Label>
+                            <Input
+                              type="number"
+                              min="0"
+                              step="0.1"
+                              value={option.interest}
+                              onChange={(e) => handleInstallmentChange(cardType, index, "interest", e.target.value)}
+                              placeholder="% Interés"
+                              className="text-sm"
+                            />
+                          </div>
                         </div>
                       </div>
                     ))}

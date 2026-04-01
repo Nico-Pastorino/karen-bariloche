@@ -4,6 +4,10 @@ import { revalidatePath } from "next/cache"
 import { supabase, isSupabaseAvailable } from "./supabase"
 import type { Product, StoreConfig } from "./store"
 
+function getErrorMessage(error: unknown) {
+  return error instanceof Error ? error.message : String(error)
+}
+
 // Convertir de snake_case (DB) a camelCase (Frontend)
 function snakeToCamel(obj: any): any {
   if (obj === null || typeof obj !== "object") {
@@ -108,14 +112,15 @@ export async function getProducts(): Promise<Product[]> {
     return convertedProducts
   } catch (error) {
     console.error("Exception in getProducts:", error)
+    const errorMessage = getErrorMessage(error)
 
     // Si es un error de conexión, lanzar error específico
     if (
-      error.message?.includes("connection") ||
-      error.message?.includes("network") ||
-      error.message?.includes("fetch") ||
-      error.message?.includes("Receiving end does not exist") ||
-      error.message?.includes("Supabase no está disponible")
+      errorMessage.includes("connection") ||
+      errorMessage.includes("network") ||
+      errorMessage.includes("fetch") ||
+      errorMessage.includes("Receiving end does not exist") ||
+      errorMessage.includes("Supabase no está disponible")
     ) {
       throw new Error("Error de conexión con la base de datos")
     }
@@ -538,13 +543,14 @@ export async function getConfig(): Promise<StoreConfig | null> {
     return snakeToCamel(data) as StoreConfig
   } catch (error) {
     console.error("Exception in getConfig:", error)
+    const errorMessage = getErrorMessage(error)
 
     // Si es un error de conexión, devolver null
     if (
-      error.message?.includes("connection") ||
-      error.message?.includes("network") ||
-      error.message?.includes("fetch") ||
-      error.message?.includes("Receiving end does not exist")
+      errorMessage.includes("connection") ||
+      errorMessage.includes("network") ||
+      errorMessage.includes("fetch") ||
+      errorMessage.includes("Receiving end does not exist")
     ) {
       console.warn("Connection error in getConfig, returning null")
       return null

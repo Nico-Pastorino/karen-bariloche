@@ -1,11 +1,8 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
 import "./globals.css"
 import { StoreProvider } from "@/lib/store"
 import { Toaster } from "@/components/toaster"
-
-const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Karen Bariloche - Productos Apple Premium",
@@ -36,7 +33,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="theme-color" content="#000000" />
       </head>
-      <body className={inter.className}>
+      <body>
         <StoreProvider>
           {children}
           <Toaster />
