@@ -14,6 +14,9 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 
+const ADMIN_USERNAME = process.env.NEXT_PUBLIC_ADMIN_USERNAME?.trim() ?? ""
+const ADMIN_PASSWORD = process.env.NEXT_PUBLIC_ADMIN_PASSWORD?.trim() ?? ""
+
 export default function AdminLoginPage() {
   const router = useRouter()
   const [username, setUsername] = useState("")
@@ -27,10 +30,14 @@ export default function AdminLoginPage() {
     setIsLoading(true)
     setError("")
 
-    // Simulación de autenticación con las credenciales específicas
+    if (!ADMIN_USERNAME || !ADMIN_PASSWORD) {
+      setError("Configuración de acceso incompleta. Contactá al administrador.")
+      setIsLoading(false)
+      return
+    }
+
     setTimeout(() => {
-      if (username === "Karenborrego" && password === "270790lalo") {
-        // Guardar estado de autenticación en localStorage
+      if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
         localStorage.setItem("adminAuthenticated", "true")
         localStorage.setItem("adminUser", username)
         router.push("/admin")
